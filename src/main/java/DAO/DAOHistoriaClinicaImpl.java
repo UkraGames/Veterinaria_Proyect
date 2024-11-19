@@ -41,7 +41,11 @@ public class DAOHistoriaClinicaImpl extends conexion implements DAOHistoriaClini
                 HistoriaClinica histo = new HistoriaClinica();
                 histo.setIdHistoriaClinica(rs.getInt("IdTipoMascota"));
                 histo.setFechaCita(rs.getDate("FechaCita"));
+                histo.setSeguimiento(rs.getString("Seguimiento"));
+                histo.setRecetado(rs.getString("Recetado"));
+                histo.setIdMascota(rs.getInt("IdMascota"));
                 Lista.add(histo);
+ 
             }
             rs.close();
             st.close();
