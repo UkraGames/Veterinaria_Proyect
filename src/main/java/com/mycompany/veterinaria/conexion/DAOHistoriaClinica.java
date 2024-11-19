@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author aleji
  */
-public interface DAOHistoraClinica {
+public interface DAOHistoriaClinica {
     public void Registar(HistoriaClinica e) throws Exception;
     public void Modificar(HistoriaClinica e) throws Exception;
     public ArrayList<HistoriaClinica> Listado() throws Exception;
