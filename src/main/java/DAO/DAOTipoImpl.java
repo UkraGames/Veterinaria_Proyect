@@ -18,7 +18,7 @@ public class DAOTipoImpl extends conexion implements DAOTipo {
     @Override
     public void Registar(TipoMascota e) throws Exception {
         try {
-            var st = DAOMascotaImpl.conn.prepareStatement("INSERT INTO tipomascota(IdTipoMascota, Descripcion) VALUES (NULL, ?);");
+            var st = DAOTipoImpl.conn.prepareStatement("INSERT INTO tipomascota(IdTipoMascota, Descripcion) VALUES (NULL, ?);");
             st.setString(0, e.getDescripcion());
             st.executeUpdate();
             st.close();

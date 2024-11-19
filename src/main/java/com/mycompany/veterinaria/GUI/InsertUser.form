@@ -49,9 +49,9 @@
                   </Group>
                   <Component id="jTextField5" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
               <Component id="jButton1" pref="113" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
               <Component id="jScrollBar1" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -70,16 +70,16 @@
               <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-              <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
               <Component id="jTextField4" min="-2" pref="20" max="-2" attributes="0"/>
@@ -87,7 +87,7 @@
               <Component id="jLabel6" min="-2" pref="20" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
               <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

@@ -4,17 +4,19 @@
  */
 package com.mycompany.veterinaria.clases;
 
+import java.sql.Date;
+
 /**
  *
  * @author aleji
  */
 public class Citas {
     private int IdCitas;
-    private String FechaCita;
+    private Date FechaCita;
     private String Descripcion;
     private int IdMascota;
 
-    public Citas(int IdCitas, String FechaCita, String Descripcion, int IdMascota) {
+    public Citas(int IdCitas, Date FechaCita, String Descripcion, int IdMascota) {
         this.IdCitas = IdCitas;
         this.FechaCita = FechaCita;
         this.Descripcion = Descripcion;
@@ -29,11 +31,11 @@ public class Citas {
         this.IdCitas = IdCitas;
     }
 
-    public String getFechaCita() {
+    public Date getFechaCita() {
         return FechaCita;
     }
 
-    public void setFechaCita(String FechaCita) {
+    public void setFechaCita(Date FechaCita) {
         this.FechaCita = FechaCita;
     }
 

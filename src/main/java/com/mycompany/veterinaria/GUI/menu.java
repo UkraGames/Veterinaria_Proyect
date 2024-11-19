@@ -128,9 +128,9 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(423, 423, 423)
+                .addGap(418, 418, 418)
                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addGap(77, 77, 77))
+                .addGap(82, 82, 82))
         );
 
         PanelSelección.setBackground(new java.awt.Color(204, 153, 255));
