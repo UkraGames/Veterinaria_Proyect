@@ -35,5 +35,8 @@ public class TipoMascota {
         this.Descripcion = Descripcion;
     }
     
-    
+    @Override
+    public String toString(){
+        return (IdTipoMascota + "-" + Descripcion);
+    }
 }
