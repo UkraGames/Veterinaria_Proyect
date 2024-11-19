@@ -3,29 +3,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAO;
-import com.mycompany.veterinaria.clases.HistoriaClinica;
-import com.mycompany.veterinaria.clases.Mascota;
-import com.mycompany.veterinaria.clases.TipoMascota;
-import com.mycompany.veterinaria.conexion.DAOTipo;
+import com.mycompany.veterinaria.clases.Citas;
+import com.mycompany.veterinaria.conexion.DAOCitas;
 import com.mycompany.veterinaria.conexion.conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
-public class DAOTipoImpl extends conexion implements DAOTipo {
+/**
+ *
+ * @author aleji
+ */
+public class DAOCitasImpl extends conexion implements DAOCitas {
 
     @Override
-    public void Registar(TipoMascota e) throws Exception {
-        
-    }
-
-    @Override
-    public void Modificar(TipoMascota e) throws Exception {
+    public void Registar(Citas e) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public ArrayList<TipoMascota> Listado() throws Exception {
+    public void Modificar(Citas e) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public ArrayList<Citas> Listado() throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
