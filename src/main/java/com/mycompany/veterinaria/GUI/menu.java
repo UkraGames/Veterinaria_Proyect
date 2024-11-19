@@ -87,7 +87,7 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
-        BtnPacientes1.setBackground(new java.awt.Color(204, 255, 204));
+        BtnPacientes1.setBackground(new java.awt.Color(204, 204, 255));
         BtnPacientes1.setFont(new java.awt.Font("Harlow Solid Italic", 0, 36)); // NOI18N
         BtnPacientes1.setForeground(new java.awt.Color(0, 0, 102));
         BtnPacientes1.setText("Citas");
