@@ -35,10 +35,10 @@ public class menu extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         BtnMascotas = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
-        BtnAdoptar = new javax.swing.JButton();
+        BtnHistorial = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
-        BtnAdoptar1 = new javax.swing.JButton();
+        BtnCitas = new javax.swing.JButton();
         PanelTitle = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -76,15 +76,15 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
-        BtnAdoptar.setBackground(new java.awt.Color(255, 255, 204));
-        BtnAdoptar.setFont(new java.awt.Font("Harlow Solid Italic", 0, 36)); // NOI18N
-        BtnAdoptar.setForeground(new java.awt.Color(0, 0, 102));
-        BtnAdoptar.setText("Historial clinico");
-        BtnAdoptar.setToolTipText("");
-        BtnAdoptar.setBorderPainted(false);
-        BtnAdoptar.addActionListener(new java.awt.event.ActionListener() {
+        BtnHistorial.setBackground(new java.awt.Color(255, 255, 204));
+        BtnHistorial.setFont(new java.awt.Font("Harlow Solid Italic", 0, 36)); // NOI18N
+        BtnHistorial.setForeground(new java.awt.Color(0, 0, 102));
+        BtnHistorial.setText("Historial clinico");
+        BtnHistorial.setToolTipText("");
+        BtnHistorial.setBorderPainted(false);
+        BtnHistorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAdoptarActionPerformed(evt);
+                BtnHistorialActionPerformed(evt);
             }
         });
 
@@ -98,15 +98,15 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
-        BtnAdoptar1.setBackground(new java.awt.Color(204, 204, 255));
-        BtnAdoptar1.setFont(new java.awt.Font("Harlow Solid Italic", 0, 36)); // NOI18N
-        BtnAdoptar1.setForeground(new java.awt.Color(0, 0, 102));
-        BtnAdoptar1.setText("Cita");
-        BtnAdoptar1.setToolTipText("");
-        BtnAdoptar1.setBorderPainted(false);
-        BtnAdoptar1.addActionListener(new java.awt.event.ActionListener() {
+        BtnCitas.setBackground(new java.awt.Color(204, 204, 255));
+        BtnCitas.setFont(new java.awt.Font("Harlow Solid Italic", 0, 36)); // NOI18N
+        BtnCitas.setForeground(new java.awt.Color(0, 0, 102));
+        BtnCitas.setText("Cita");
+        BtnCitas.setToolTipText("");
+        BtnCitas.setBorderPainted(false);
+        BtnCitas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAdoptar1ActionPerformed(evt);
+                BtnCitasActionPerformed(evt);
             }
         });
 
@@ -118,8 +118,8 @@ public class menu extends javax.swing.JFrame {
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(BtnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator4)
-            .addComponent(BtnAdoptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnAdoptar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jSeparator3)
@@ -128,22 +128,22 @@ public class menu extends javax.swing.JFrame {
         PanelSelecciónLayout.setVerticalGroup(
             PanelSelecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelSelecciónLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addContainerGap(137, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BtnMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtnAdoptar1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnCitas, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtnAdoptar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -294,12 +294,12 @@ public class menu extends javax.swing.JFrame {
 
     private void BtnMascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMascotasActionPerformed
         MostrarMascotas pl = new MostrarMascotas();
-        pl.setSize(470, 390);
+        pl.setSize(1663, 560 );
         contenido.removeAll(); 
         contenido.add(pl, java.awt.BorderLayout.CENTER);
         contenido.revalidate();
         contenido.repaint();
-        
+        jLabel2.setText("Mascotas");
     }//GEN-LAST:event_BtnMascotasActionPerformed
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
@@ -308,21 +308,33 @@ public class menu extends javax.swing.JFrame {
 
     private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
         InsertUser pl = new InsertUser();
-        pl.setSize(470, 390);
+        pl.setSize(1663, 560);
         contenido.removeAll(); 
         contenido.add(pl, java.awt.BorderLayout.CENTER);
         contenido.revalidate();
         contenido.repaint();
-        
+        jLabel2.setText("Nuevo Paciente");
     }//GEN-LAST:event_BtnPacientesActionPerformed
 
-    private void BtnAdoptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdoptarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnAdoptarActionPerformed
+    private void BtnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHistorialActionPerformed
+        HistorialClinicoPanel pl = new HistorialClinicoPanel();
+        pl.setSize(1663, 560);
+        contenido.removeAll(); 
+        contenido.add(pl, java.awt.BorderLayout.CENTER);
+        contenido.revalidate();
+        contenido.repaint();
+        jLabel2.setText("Historial Clínico");
+    }//GEN-LAST:event_BtnHistorialActionPerformed
 
-    private void BtnAdoptar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAdoptar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnAdoptar1ActionPerformed
+    private void BtnCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCitasActionPerformed
+        Cita pl = new Cita();
+        pl.setSize(1663, 560);
+        contenido.removeAll(); 
+        contenido.add(pl, java.awt.BorderLayout.CENTER);
+        contenido.revalidate();
+        contenido.repaint();
+        jLabel2.setText("Citas");
+    }//GEN-LAST:event_BtnCitasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,8 +343,8 @@ public class menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
-    private javax.swing.JButton BtnAdoptar;
-    private javax.swing.JButton BtnAdoptar1;
+    private javax.swing.JButton BtnCitas;
+    private javax.swing.JButton BtnHistorial;
     private javax.swing.JButton BtnMascotas;
     private javax.swing.JButton BtnPacientes;
     private javax.swing.JButton BtnSalir;

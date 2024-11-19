@@ -84,8 +84,8 @@
                   <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
                   <Component id="BtnSalir" max="32767" attributes="0"/>
                   <Component id="jSeparator4" max="32767" attributes="0"/>
-                  <Component id="BtnAdoptar" alignment="0" max="32767" attributes="0"/>
-                  <Component id="BtnAdoptar1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="BtnHistorial" alignment="0" max="32767" attributes="0"/>
+                  <Component id="BtnCitas" alignment="0" max="32767" attributes="0"/>
                   <Component id="BtnPacientes" alignment="0" max="32767" attributes="0"/>
                   <Component id="jSeparator5" alignment="1" max="32767" attributes="0"/>
                   <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
@@ -95,22 +95,22 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                      <EmptySpace pref="137" max="32767" attributes="0"/>
                       <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="BtnMascotas" min="-2" pref="79" max="-2" attributes="0"/>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="BtnPacientes" min="-2" pref="77" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="BtnAdoptar1" min="-2" pref="79" max="-2" attributes="0"/>
+                      <Component id="BtnCitas" min="-2" pref="79" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="BtnAdoptar" min="-2" pref="84" max="-2" attributes="0"/>
+                      <Component id="BtnHistorial" min="-2" pref="84" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jSeparator5" min="-2" pref="15" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -165,7 +165,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnPacientesActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BtnAdoptar">
+            <Component class="javax.swing.JButton" name="BtnHistorial">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="ff" red="ff" type="rgb"/>
@@ -181,7 +181,7 @@
                 <Property name="borderPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAdoptarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnHistorialActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="BtnSalir">
@@ -201,7 +201,7 @@
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator5">
             </Component>
-            <Component class="javax.swing.JButton" name="BtnAdoptar1">
+            <Component class="javax.swing.JButton" name="BtnCitas">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -217,7 +217,7 @@
                 <Property name="borderPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAdoptar1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCitasActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
