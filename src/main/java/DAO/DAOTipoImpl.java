@@ -12,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Set;
 public class DAOTipoImpl extends conexion implements DAOTipo {
 
     @Override
@@ -29,9 +28,13 @@ public class DAOTipoImpl extends conexion implements DAOTipo {
     @Override
     public void Modificar(TipoMascota e) throws Exception {
         try {
-            var st = DAOTipoImpl.conn.prepareStatement("");
+            var st = DAOTipoImpl.conn.prepareStatement("UPTADE tipomascota SET Descripcion = ? WHERE IdTipoMascota = ?");
+            st.setString(0, e.getDescripcion());
+            st.setInt(1, e.getIdTipoMascota());
+            st.executeUpdate();
+            st.close();
             
-        } catch (Exception ex){
+        } catch (SQLException ex){
         }
     }
 

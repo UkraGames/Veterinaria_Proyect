@@ -1,5 +1,7 @@
 package com.mycompany.veterinaria.clases;
 
+import java.util.Date;
+
 public class Mascota {
     private String DocumentoDueño;
     private String Nombre;
@@ -7,9 +9,9 @@ public class Mascota {
     private String Raza;
     private String NombreDueño;
     private int Edad;
-    private String FechaNacimiento;
+    private Date FechaNacimiento;
 
-    public Mascota(String DocumentoDueño, String Nombre, int Tipo, String Raza, String NombreDueño, int Edad, String FechaNacimiento) {
+    public Mascota(String DocumentoDueño, String Nombre, int Tipo, String Raza, String NombreDueño, int Edad, Date FechaNacimiento) {
         this.DocumentoDueño = DocumentoDueño;
         this.Nombre = Nombre;
         this.Tipo = Tipo;
@@ -67,11 +69,11 @@ public class Mascota {
         this.Edad = Edad;
     }
 
-    public String getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return FechaNacimiento;
     }
 
-    public void setFechaNacimiento(String FechaNacimiento) {
+    public void setFechaNacimiento(Date FechaNacimiento) {
         this.FechaNacimiento = FechaNacimiento;
     }
     

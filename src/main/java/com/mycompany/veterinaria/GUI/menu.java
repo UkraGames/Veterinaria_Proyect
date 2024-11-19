@@ -277,7 +277,7 @@ public class menu extends javax.swing.JFrame {
 
     private void BtnMascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMascotasActionPerformed
         MostrarMascotas pl = new MostrarMascotas();
-        pl.setSize(1500, 560 );
+        pl.setSize(1400, 560 );
         contenido.removeAll(); 
         contenido.add(pl, java.awt.BorderLayout.CENTER);
         contenido.revalidate();
@@ -291,7 +291,7 @@ public class menu extends javax.swing.JFrame {
 
     private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
         InsertUser pl = new InsertUser();
-        pl.setSize(1500, 560);
+        pl.setSize(1400, 560);
         contenido.removeAll(); 
         contenido.add(pl, java.awt.BorderLayout.CENTER);
         contenido.revalidate();
@@ -301,7 +301,7 @@ public class menu extends javax.swing.JFrame {
 
     private void BtnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHistorialActionPerformed
         HistorialClinicoPanel pl = new HistorialClinicoPanel();
-        pl.setSize(1500, 560);
+        pl.setSize(1400, 560);
         contenido.removeAll(); 
         contenido.add(pl, java.awt.BorderLayout.CENTER);
         contenido.revalidate();
@@ -311,7 +311,7 @@ public class menu extends javax.swing.JFrame {
 
     private void BtnPacientes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientes1ActionPerformed
         CitaMascota pl = new CitaMascota();
-        pl.setSize(1500, 560);
+        pl.setSize(1400, 560);
         contenido.removeAll(); 
         contenido.add(pl, java.awt.BorderLayout.CENTER);
         contenido.revalidate();
