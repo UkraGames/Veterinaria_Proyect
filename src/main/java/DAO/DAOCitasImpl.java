@@ -18,7 +18,6 @@ public class DAOCitasImpl extends conexion implements DAOCitas {
 
     @Override
     public void Registar(Citas e) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
