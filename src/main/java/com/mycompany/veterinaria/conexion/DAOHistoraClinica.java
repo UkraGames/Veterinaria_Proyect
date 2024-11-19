@@ -4,7 +4,7 @@
  */
 package com.mycompany.veterinaria.conexion;
 
-import com.mycompany.veterinaria.clases.Historia_Clinica;
+import com.mycompany.veterinaria.clases.HistoriaClinica;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author aleji
  */
 public interface DAOHistoraClinica {
-    public void Registar(Historia_Clinica e) throws Exception;
-    public void Modificar(Historia_Clinica e) throws Exception;
-    public ArrayList<Historia_Clinica> Listado() throws Exception;
+    public void Registar(HistoriaClinica e) throws Exception;
+    public void Modificar(HistoriaClinica e) throws Exception;
+    public ArrayList<HistoriaClinica> Listado() throws Exception;
 }

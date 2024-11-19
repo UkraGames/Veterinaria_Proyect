@@ -4,15 +4,15 @@
  */
 package com.mycompany.veterinaria.conexion;
 import java.util.ArrayList;
-import com.mycompany.veterinaria.clases.Tipo_Mascota;
+import com.mycompany.veterinaria.clases.TipoMascota;
 
 /**
  *
  * @author aleji
  */
 public interface DAOTipo {
-    public void Registar(Tipo_Mascota e) throws Exception;
-    public void Modificar(Tipo_Mascota e) throws Exception;
-    public ArrayList<Tipo_Mascota> Listado() throws Exception;
+    public void Registar(TipoMascota e) throws Exception;
+    public void Modificar(TipoMascota e) throws Exception;
+    public ArrayList<TipoMascota> Listado() throws Exception;
     
 }

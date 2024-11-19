@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.veterinaria.GUI;
+package DAO;
 
-import com.mycompany.veterinaria.clases.Paciente;
-import com.mycompany.veterinaria.conexion.DAOPaciente;
+import com.mycompany.veterinaria.clases.Mascota;
+import com.mycompany.veterinaria.conexion.DAOMascota;
 import com.mycompany.veterinaria.conexion.conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,20 +16,20 @@ import java.util.ArrayList;
  *
  * @author aleji
  */
-public class DAOPacienteImpl extends conexion implements DAOPaciente{
+public class DAOMascotaImpl extends conexion implements DAOMascota{
 
     @Override
-    public void Registrar(Paciente e) throws Exception {
+    public void Registrar(Mascota e) throws Exception {
         try{
-            var st = this.conn.prepareStatement("INSERT INTO Paciente(Documento, Nombre_Amo, Tipo, Raza, Nombre_Mascota, Historial) VALUES(?, ?, ?, ?, ?, NULL )");
-            st.setString(1, Paciente.getDocumento());
-        }catch(SQLException ex){
+            var st = DAOMascotaImpl.conn.prepareStatement("INSERT INTO Paciente(Documento, Nombre_Amo, Tipo, Raza, Nombre_Mascota, Historial) VALUES(?, ?, ?, ?, ?, NULL )");
+            st.setString(1, e.getDocumentoDueño());
+        }catch(Exception ex){
             throw ex;
         }
     }
 
     @Override
-    public void Modificar(Paciente e) throws Exception {
+    public void Modificar(Mascota e) throws Exception {
         try{
         
         } catch(Exception ex) {
@@ -38,7 +38,7 @@ public class DAOPacienteImpl extends conexion implements DAOPaciente{
     }
 
     @Override
-    public void Eliminar(Paciente e) throws Exception {
+    public void Eliminar(Mascota e) throws Exception {
         try{
         
         } catch(Exception ex) {
@@ -47,7 +47,7 @@ public class DAOPacienteImpl extends conexion implements DAOPaciente{
     }
 
     @Override
-    public ArrayList<Paciente> Listado() throws Exception {
+    public ArrayList<Mascota> Listado() throws Exception {
         try{
         
         } catch(Exception ex) {
