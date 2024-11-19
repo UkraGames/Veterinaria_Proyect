@@ -42,12 +42,13 @@ public class DAOTipoImpl extends conexion implements DAOTipo {
     public ArrayList<TipoMascota> Listado() throws Exception {
         ArrayList<TipoMascota> Lista = null;
         try {
-            PreparedStatement st = DAOTipoImpl.conn.prepareStatement("SELECT * tipomascota;");
+            PreparedStatement st = DAOTipoImpl.conn.prepareStatement("SELECT * FROM tipomascota;");
         
             Lista = new ArrayList();
-            ResultSet rs = st.executeQuery("");
+            ResultSet rs = st.executeQuery();
             while (rs.next()){
                 TipoMascota tipo = new TipoMascota();
+                tipo.setIdTipoMascota(rs.getInt("IdTipoMascota"));
                 tipo.setDescripcion(rs.getString("Descripcion"));
                 Lista.add(tipo);
             }

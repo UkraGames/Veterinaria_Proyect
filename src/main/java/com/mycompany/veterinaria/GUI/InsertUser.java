@@ -10,8 +10,11 @@ import com.mycompany.veterinaria.clases.Mascota;
 import com.mycompany.veterinaria.clases.TipoMascota;
 import com.mycompany.veterinaria.conexion.conexion;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +29,8 @@ public class InsertUser extends javax.swing.JPanel {
     private String Dueño;
     private int Edad;
     private Date FechaNacimiento;
+    private List<TipoMascota> lista;
+    
     
     /**
      * Creates new form InsertUser
@@ -48,7 +53,7 @@ public class InsertUser extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         NombrePet = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        ListaTipo = new javax.swing.JComboBox<>();
+        ListaTipo = new javax.swing.JComboBox<TipoMascota>();
         jLabel4 = new javax.swing.JLabel();
         Raza = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -88,6 +93,13 @@ public class InsertUser extends javax.swing.JPanel {
         jLabel3.setText("Tipo de Mascota");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 180, -1));
 
+        DAOTipoImpl dao = new DAOTipoImpl();
+        try {
+            lista = dao.Listado();
+        }catch(Exception ex){
+        }
+        DefaultComboBoxModel<TipoMascota> model = new DefaultComboBoxModel<>(lista.toArray(new TipoMascota[0]));
+        ListaTipo.setModel(model);
         ListaTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ListaTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +169,7 @@ public class InsertUser extends javax.swing.JPanel {
     }//GEN-LAST:event_DocumentoDueñoActionPerformed
 
     private void ListaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaTipoActionPerformed
-        
+        Tipo = ListaTipo.getSelectedIndex();
     }//GEN-LAST:event_ListaTipoActionPerformed
 
     private void NombrePetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombrePetActionPerformed
@@ -208,7 +220,7 @@ public class InsertUser extends javax.swing.JPanel {
     private javax.swing.JTextField DocumentoDueño;
     private javax.swing.JTextField EdadPet;
     private com.toedter.calendar.JDateChooser Fecha;
-    private javax.swing.JComboBox<String> ListaTipo;
+    private javax.swing.JComboBox<TipoMascota> ListaTipo;
     private javax.swing.JTextField NombreAmo;
     private javax.swing.JTextField NombrePet;
     private javax.swing.JTextField Raza;

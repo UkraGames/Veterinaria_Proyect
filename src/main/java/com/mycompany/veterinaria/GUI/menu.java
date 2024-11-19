@@ -290,8 +290,7 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
-        InsertUser pl;
-        pl = new InsertUser();
+        InsertUser pl = new InsertUser();
         pl.setSize(1400, 560);
         contenido.removeAll(); 
         contenido.add(pl, java.awt.BorderLayout.CENTER);

@@ -3,19 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.veterinaria.clases; 
+
+import java.util.Date;
+
 public class HistoriaClinica {
     private int IdHistoriaClinica;
-    private String FechaCita;
+    private Date FechaCita;
     private String Seguimiento;
     private String Recetado;
     private int IdMascota;
 
-    public HistoriaClinica(int IdHistoriaClinica, String FechaCita, String Seguimiento, String Recetado, int IdMascota) {
+    public HistoriaClinica(int IdHistoriaClinica, Date FechaCita, String Seguimiento, String Recetado, int IdMascota) {
         this.IdHistoriaClinica = IdHistoriaClinica;
         this.FechaCita = FechaCita;
         this.Seguimiento = Seguimiento;
         this.Recetado = Recetado;
         this.IdMascota = IdMascota;
+    }
+
+    public HistoriaClinica() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public int getIdHistoriaClinica() {
@@ -26,11 +33,11 @@ public class HistoriaClinica {
         this.IdHistoriaClinica = IdHistoriaClinica;
     }
 
-    public String getFechaCita() {
+    public Date getFechaCita() {
         return FechaCita;
     }
 
-    public void setFechaCita(String FechaCita) {
+    public void setFechaCita(Date FechaCita) {
         this.FechaCita = FechaCita;
     }
 
