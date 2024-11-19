@@ -34,11 +34,11 @@ public class menu extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         BtnMascotas = new javax.swing.JButton();
-        BtnPacientes = new javax.swing.JButton();
         BtnHistorial = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
-        BtnCitas = new javax.swing.JButton();
+        BtnPacientes1 = new javax.swing.JButton();
+        BtnPacientes = new javax.swing.JButton();
         PanelTitle = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -65,17 +65,6 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
-        BtnPacientes.setBackground(new java.awt.Color(204, 255, 204));
-        BtnPacientes.setFont(new java.awt.Font("Harlow Solid Italic", 0, 36)); // NOI18N
-        BtnPacientes.setForeground(new java.awt.Color(0, 0, 102));
-        BtnPacientes.setText("Nuevo paciente");
-        BtnPacientes.setBorderPainted(false);
-        BtnPacientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnPacientesActionPerformed(evt);
-            }
-        });
-
         BtnHistorial.setBackground(new java.awt.Color(255, 255, 204));
         BtnHistorial.setFont(new java.awt.Font("Harlow Solid Italic", 0, 36)); // NOI18N
         BtnHistorial.setForeground(new java.awt.Color(0, 0, 102));
@@ -98,15 +87,25 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
-        BtnCitas.setBackground(new java.awt.Color(204, 204, 255));
-        BtnCitas.setFont(new java.awt.Font("Harlow Solid Italic", 0, 36)); // NOI18N
-        BtnCitas.setForeground(new java.awt.Color(0, 0, 102));
-        BtnCitas.setText("Cita");
-        BtnCitas.setToolTipText("");
-        BtnCitas.setBorderPainted(false);
-        BtnCitas.addActionListener(new java.awt.event.ActionListener() {
+        BtnPacientes1.setBackground(new java.awt.Color(204, 255, 204));
+        BtnPacientes1.setFont(new java.awt.Font("Harlow Solid Italic", 0, 36)); // NOI18N
+        BtnPacientes1.setForeground(new java.awt.Color(0, 0, 102));
+        BtnPacientes1.setText("Citas");
+        BtnPacientes1.setBorderPainted(false);
+        BtnPacientes1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCitasActionPerformed(evt);
+                BtnPacientes1ActionPerformed(evt);
+            }
+        });
+
+        BtnPacientes.setBackground(new java.awt.Color(204, 255, 204));
+        BtnPacientes.setFont(new java.awt.Font("Harlow Solid Italic", 0, 36)); // NOI18N
+        BtnPacientes.setForeground(new java.awt.Color(0, 0, 102));
+        BtnPacientes.setText("Nuevo paciente");
+        BtnPacientes.setBorderPainted(false);
+        BtnPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPacientesActionPerformed(evt);
             }
         });
 
@@ -119,11 +118,15 @@ public class menu extends javax.swing.JFrame {
             .addComponent(BtnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator4)
             .addComponent(BtnHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jSeparator3)
             .addComponent(jSeparator2)
+            .addGroup(PanelSelecciónLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelSelecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnPacientes1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         PanelSelecciónLayout.setVerticalGroup(
             PanelSelecciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,8 +142,8 @@ public class menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtnCitas, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(BtnPacientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BtnHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,17 +219,17 @@ public class menu extends javax.swing.JFrame {
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1055, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(jLabel1))
-                    .addGroup(contenidoLayout.createSequentialGroup()
                         .addGap(185, 185, 185)
-                        .addComponent(jLabel5)
-                        .addGap(566, 566, 566)
-                        .addComponent(jLabel8)))
-                .addContainerGap(571, Short.MAX_VALUE))
+                        .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addGroup(contenidoLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(566, 566, 566)
+                                .addComponent(jLabel8))))
+                    .addGroup(contenidoLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1055, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(536, Short.MAX_VALUE))
             .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(contenidoLayout.createSequentialGroup()
                     .addGap(488, 488, 488)
@@ -236,15 +239,15 @@ public class menu extends javax.swing.JFrame {
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(179, 179, 179)
+                .addGap(195, 195, 195)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel8))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(292, Short.MAX_VALUE))
             .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
                     .addContainerGap(529, Short.MAX_VALUE)
@@ -272,7 +275,9 @@ public class menu extends javax.swing.JFrame {
                         .addComponent(PanelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(PanelSelección, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addComponent(PanelSelección, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(83, 83, 83)))
                 .addContainerGap())
         );
 
@@ -326,15 +331,15 @@ public class menu extends javax.swing.JFrame {
         jLabel2.setText("Historial Clínico");
     }//GEN-LAST:event_BtnHistorialActionPerformed
 
-    private void BtnCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCitasActionPerformed
-        Cita pl = new Cita();
+    private void BtnPacientes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientes1ActionPerformed
+        CitaMascota pl = new CitaMascota();
         pl.setSize(1663, 560);
         contenido.removeAll(); 
         contenido.add(pl, java.awt.BorderLayout.CENTER);
         contenido.revalidate();
         contenido.repaint();
         jLabel2.setText("Citas");
-    }//GEN-LAST:event_BtnCitasActionPerformed
+    }//GEN-LAST:event_BtnPacientes1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,10 +348,10 @@ public class menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
-    private javax.swing.JButton BtnCitas;
     private javax.swing.JButton BtnHistorial;
     private javax.swing.JButton BtnMascotas;
     private javax.swing.JButton BtnPacientes;
+    private javax.swing.JButton BtnPacientes1;
     private javax.swing.JButton BtnSalir;
     private javax.swing.JPanel PanelSelección;
     private javax.swing.JPanel PanelTitle;
