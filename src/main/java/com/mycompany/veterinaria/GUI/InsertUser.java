@@ -5,10 +5,14 @@
 package com.mycompany.veterinaria.GUI;
 
 import DAO.DAOMascotaImpl;
+import DAO.DAOTipoImpl;
 import com.mycompany.veterinaria.clases.Mascota;
+import com.mycompany.veterinaria.clases.TipoMascota;
+import com.mycompany.veterinaria.conexion.conexion;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -55,6 +59,7 @@ public class InsertUser extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         Fecha = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(204, 204, 204));
@@ -83,7 +88,6 @@ public class InsertUser extends javax.swing.JPanel {
         jLabel3.setText("Tipo de Mascota");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 180, -1));
 
-        ListaTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         ListaTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ListaTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,13 +135,21 @@ public class InsertUser extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 263, 113, 48));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 113, 48));
 
         Fecha.setDateFormatString("yyyy-MM-dd");
         add(Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 134, -1));
 
         jLabel7.setText("Inserte la Fecha");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 22, -1, -1));
+
+        jButton2.setText("Añadir Tipo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 113, 48));
     }// </editor-fold>//GEN-END:initComponents
 
     private void DocumentoDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoDueñoActionPerformed
@@ -145,7 +157,7 @@ public class InsertUser extends javax.swing.JPanel {
     }//GEN-LAST:event_DocumentoDueñoActionPerformed
 
     private void ListaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaTipoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ListaTipoActionPerformed
 
     private void NombrePetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombrePetActionPerformed
@@ -179,6 +191,18 @@ public class InsertUser extends javax.swing.JPanel {
         raza = Raza.getText();
     }//GEN-LAST:event_RazaActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try { 
+            String dsc = JOptionPane.showInputDialog("Inserte El Tipo de Mascota");
+            TipoMascota tm = new TipoMascota(dsc);
+            DAOTipoImpl user = new DAOTipoImpl();
+            user.Registar(tm);
+        } catch (Exception ex) {
+            Logger.getLogger(InsertUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DocumentoDueño;
@@ -189,6 +213,7 @@ public class InsertUser extends javax.swing.JPanel {
     private javax.swing.JTextField NombrePet;
     private javax.swing.JTextField Raza;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -17,8 +17,8 @@ public class DAOTipoImpl extends conexion implements DAOTipo {
     @Override
     public void Registar(TipoMascota e) throws Exception {
         try {
-            var st = DAOTipoImpl.conn.prepareStatement("INSERT INTO tipomascota(IdTipoMascota, Descripcion) VALUES (NULL, ?);");
-            st.setString(0, e.getDescripcion());
+            var st = DAOTipoImpl.conn.prepareStatement("INSERT INTO tipomascota(Descripcion) VALUES (?);");
+            st.setString(1, e.getDescripcion());
             st.executeUpdate();
             st.close();
         } catch (SQLException ex){
@@ -29,8 +29,8 @@ public class DAOTipoImpl extends conexion implements DAOTipo {
     public void Modificar(TipoMascota e) throws Exception {
         try {
             var st = DAOTipoImpl.conn.prepareStatement("UPTADE tipomascota SET Descripcion = ? WHERE IdTipoMascota = ?");
-            st.setString(0, e.getDescripcion());
-            st.setInt(1, e.getIdTipoMascota());
+            st.setString(1, e.getDescripcion());
+            st.setInt(2, e.getIdTipoMascota());
             st.executeUpdate();
             st.close();
             

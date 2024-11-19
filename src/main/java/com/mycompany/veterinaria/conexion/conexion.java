@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class conexion {
-    private static final String url = "jdbc:mysql://localhost";
+    private static final String url = "jdbc:mysql://localhost:3306/veterinaria";
     private static final String userName = "root";
     private static final String password = "";
     protected static Connection conn = null;

@@ -12,6 +12,9 @@ public class TipoMascota {
     private int IdTipoMascota;
     private String Descripcion;
 
+    public TipoMascota(String Descripcion) {
+     this.Descripcion = Descripcion;
+    }
     public TipoMascota() {
      
     }
