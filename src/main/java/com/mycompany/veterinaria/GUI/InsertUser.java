@@ -26,21 +26,65 @@ public class InsertUser extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        jTextField1 = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1606, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
-        );
+        setBackground(new java.awt.Color(204, 255, 204));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 180, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 123, 200, 10));
+
+        jLabel1.setText("Documento del Dueño");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 180, -1));
+
+        jLabel2.setText("Nombre de la mascota");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 180, -1));
+
+        jTextField2.setText("jTextField2");
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 180, -1));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 183, 200, 10));
+
+        jLabel3.setText("Nombre de la mascota");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 180, -1));
+
+        jTextField3.setText("jTextField2");
+        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 180, -1));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 200, 10));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
