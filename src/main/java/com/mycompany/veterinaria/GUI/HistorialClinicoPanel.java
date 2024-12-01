@@ -4,6 +4,12 @@
  */
 package com.mycompany.veterinaria.GUI;
 
+import DAO.DAOHistoriaClinicaImpl;
+import DAO.DAOTipoImpl;
+import com.mycompany.veterinaria.clases.HistoriaClinica;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aleji
@@ -28,8 +34,9 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,7 +71,6 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 960, 530));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 227, 42));
 
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -73,15 +79,29 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, -1, 40));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 227, 42));
+
+        jButton2.setText("Insertar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 80, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;

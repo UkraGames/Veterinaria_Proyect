@@ -290,10 +290,10 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
-        InsertUser pl = new InsertUser();
+        InsertMascota pl = new InsertMascota();
         pl.setSize(1400, 560);
         contenido.removeAll(); 
-        contenido.add(pl, java.awt.BorderLayout.CENTER);
+        contenido.add(pl, java.awt.BorderLayout.EAST);
         contenido.revalidate();
         contenido.repaint();
         jLabel2.setText("Nuevo Paciente");

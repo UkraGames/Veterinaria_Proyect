@@ -10,7 +10,7 @@ import com.mycompany.veterinaria.clases.Mascota;
 import com.mycompany.veterinaria.clases.TipoMascota;
 import com.mycompany.veterinaria.conexion.conexion;
 import java.util.Date;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author aleji
  */
-public class InsertUser extends javax.swing.JPanel {
+public class InsertMascota extends javax.swing.JPanel {
     private String documentoDueño;
     private String NombreMascota;
     private int Tipo;
@@ -29,13 +29,13 @@ public class InsertUser extends javax.swing.JPanel {
     private String Dueño;
     private int Edad;
     private Date FechaNacimiento;
-    private List<TipoMascota> lista;
+    private ArrayList<TipoMascota> lista;
     
     
     /**
      * Creates new form InsertUser
      */
-    public InsertUser() {
+    public InsertMascota() {
         initComponents();
     }
 
@@ -68,36 +68,35 @@ public class InsertUser extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(204, 204, 204));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DocumentoDueño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DocumentoDueñoActionPerformed(evt);
             }
         });
-        add(DocumentoDueño, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 180, -1));
 
         jLabel1.setText("Documento del Dueño");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 180, -1));
 
         jLabel2.setText("Nombre de la mascota");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 180, -1));
 
         NombrePet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NombrePetActionPerformed(evt);
             }
         });
-        add(NombrePet, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 180, -1));
 
         jLabel3.setText("Tipo de Mascota");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 180, -1));
 
         DAOTipoImpl dao = new DAOTipoImpl();
         try {
             lista = dao.Listado();
+            if (lista == null) {
+                lista = new ArrayList<>();
+            }
         }catch(Exception ex){
+            ex.printStackTrace();
         }
+
         DefaultComboBoxModel<TipoMascota> model = new DefaultComboBoxModel<>(lista.toArray(new TipoMascota[0]));
         ListaTipo.setModel(model);
         ListaTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -106,20 +105,16 @@ public class InsertUser extends javax.swing.JPanel {
                 ListaTipoActionPerformed(evt);
             }
         });
-        add(ListaTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 180, -1));
 
         jLabel4.setText("Raza de la Mascota");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 140, -1));
 
         Raza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RazaActionPerformed(evt);
             }
         });
-        add(Raza, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 180, -1));
 
         jLabel5.setText("Nombre del Dueño");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 110, -1));
 
         NombreAmo.setForeground(new java.awt.Color(204, 204, 204));
         NombreAmo.addActionListener(new java.awt.event.ActionListener() {
@@ -127,10 +122,8 @@ public class InsertUser extends javax.swing.JPanel {
                 NombreAmoActionPerformed(evt);
             }
         });
-        add(NombreAmo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 180, 20));
 
         jLabel6.setText("Edad de la mascota");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, -1, 20));
 
         EdadPet.setForeground(new java.awt.Color(204, 204, 204));
         EdadPet.addActionListener(new java.awt.event.ActionListener() {
@@ -138,8 +131,6 @@ public class InsertUser extends javax.swing.JPanel {
                 EdadPetActionPerformed(evt);
             }
         });
-        add(EdadPet, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 180, -1));
-        add(jScrollBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 0, -1, 431));
 
         jButton1.setText("Subir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -147,13 +138,10 @@ public class InsertUser extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 113, 48));
 
         Fecha.setDateFormatString("yyyy-MM-dd");
-        add(Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 134, -1));
 
         jLabel7.setText("Inserte la Fecha");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 22, -1, -1));
 
         jButton2.setText("Añadir Tipo");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +149,76 @@ public class InsertUser extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 113, 48));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DocumentoDueño, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NombrePet, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ListaTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Raza, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NombreAmo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(EdadPet, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(139, 139, 139)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(188, 188, 188)
+                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addGap(4, 4, 4)
+                .addComponent(DocumentoDueño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel2)
+                .addGap(4, 4, 4)
+                .addComponent(NombrePet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel3)
+                .addGap(4, 4, 4)
+                .addComponent(ListaTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel4)
+                .addGap(4, 4, 4)
+                .addComponent(Raza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(4, 4, 4)
+                .addComponent(NombreAmo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(EdadPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel7)
+                .addGap(2, 2, 2)
+                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(142, 142, 142)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void DocumentoDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoDueñoActionPerformed
@@ -195,7 +252,7 @@ public class InsertUser extends javax.swing.JPanel {
         try {
             up.Registrar(user);
         } catch (Exception ex) {
-            Logger.getLogger(InsertUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InsertMascota.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -208,9 +265,11 @@ public class InsertUser extends javax.swing.JPanel {
             String dsc = JOptionPane.showInputDialog("Inserte El Tipo de Mascota");
             TipoMascota tm = new TipoMascota(dsc);
             DAOTipoImpl user = new DAOTipoImpl();
+            user.getConnection();
             user.Registar(tm);
+            user.Close();
         } catch (Exception ex) {
-            Logger.getLogger(InsertUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InsertMascota.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed

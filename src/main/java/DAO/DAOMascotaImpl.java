@@ -22,45 +22,60 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
     @Override
     public void Registrar(Mascota e) throws Exception {
         try{
-            var st = DAOMascotaImpl.conn.prepareStatement("INSERT INTO `mascota` (`DocumentoDueño`, `Nombre`, `Tipo`, `Raza`, `NombreDueño`, `Edad`, `FechaNacimiento`) VALUES ('?', '?', '?', '?', '?', '?', '?');");
-            st.setString(1, e.getDocumentoDueño());
-            st.setString(2, e.getNombre());
-            st.setInt(3, e.getTipo());
-            st.setString(4, e.getRaza());
-            st.setString(5, e.getNombreDueño());
-            st.setInt(6, e.getEdad());
-            st.setDate(7, (Date) e.getFechaNacimiento());
-            st.executeUpdate();
-            st.close();
-        }catch(Exception ex){
+            this.getConnection();
+            try (java.sql.PreparedStatement st = DAOMascotaImpl.conn.prepareStatement("INSERT INTO `mascota` (`DocumentoDueño`, `Nombre`, `Tipo`, `Raza`, `NombreDueño`, `Edad`, `FechaNacimiento`) VALUES ('?', '?', '?', '?', '?', '?', '?');")) {
+                st.setString(1, e.getDocumentoDueño());
+                st.setString(2, e.getNombre());
+                st.setInt(3, e.getTipo());
+                st.setString(4, e.getRaza());
+                st.setString(5, e.getNombreDueño());
+                st.setInt(6, e.getEdad());
+                st.setDate(7, (Date) e.getFechaNacimiento());
+                st.executeUpdate();
+            }
+        }catch(ClassNotFoundException | SQLException ex){
             throw ex;
+        } finally {
+            this.Close();
         }
     }
 
     @Override
     public void Modificar(Mascota e) throws Exception {
         try{
-            var st = DAOMascotaImpl.conn.prepareStatement("UPDATE `mascota` SET `Nombre` = ?, `Tipo` = ?, `Raza` = ?, `NombreDueño` = ?, `Edad` = ?, `FechaNacimiento` = ?, WHERE `DocumentoDueño` = ?;");
-            st.setString(1, e.getNombre());
-            st.setInt(2, e.getTipo());
-            st.setString(3, e.getRaza());
-            st.setString(4, e.getNombreDueño());
-            st.setInt(5, e.getEdad());
-            st.setDate(6, (Date) e.getFechaNacimiento());
-            st.setString(7, e.getDocumentoDueño());
-            st.executeUpdate();
-            st.close();
-        } catch(Exception ex) {
+            this.getConnection();
+            try (java.sql.PreparedStatement st = DAOMascotaImpl.conn.prepareStatement("UPDATE `mascota` SET `Nombre` = ?, `Tipo` = ?, `Raza` = ?, `NombreDueño` = ?, `Edad` = ?, `FechaNacimiento` = ?, WHERE `DocumentoDueño` = ?;")) {
+                st.setString(1, e.getNombre());
+                st.setInt(2, e.getTipo());
+                st.setString(3, e.getRaza());
+                st.setString(4, e.getNombreDueño());
+                st.setInt(5, e.getEdad());
+                st.setDate(6, (Date) e.getFechaNacimiento());
+                st.setString(7, e.getDocumentoDueño());
+                st.executeUpdate();
+            }
+        } catch(ClassNotFoundException | SQLException ex) {
         
+        } finally {
+            this.Close();
         }
     }
 
     @Override
     public void Eliminar(Mascota e) throws Exception {
         try{
+            this.getConnection();
+            try (var st = DAOMascotaImpl.conn.prepareStatement("DELETE FROM mascota WHERE DocumentoDueño = '?' AND Nombre = '?';")){
+                st.setString(1, e.getDocumentoDueño());
+                st.setString(2, e.getNombreDueño());
+                st.executeUpdate();
+            }
+                
+            
+        } catch(ClassNotFoundException | SQLException ex) {
         
-        } catch(Exception ex) {
-        
+        } finally {
+            this.Close();
         }
     }
 

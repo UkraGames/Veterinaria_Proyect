@@ -6,12 +6,14 @@ package com.mycompany.veterinaria.clases;
 
 import java.util.Date;
 
+
 public class HistoriaClinica {
     private int IdHistoriaClinica;
     private Date FechaCita;
     private String Seguimiento;
     private String Recetado;
     private int IdMascota;
+    Mascota mas;
 
     public HistoriaClinica(int IdHistoriaClinica, Date FechaCita, String Seguimiento, String Recetado, int IdMascota) {
         this.IdHistoriaClinica = IdHistoriaClinica;
@@ -65,5 +67,8 @@ public class HistoriaClinica {
         this.IdMascota = IdMascota;
     }
     
-    
+    @Override
+    public String toString(){
+        return ( IdHistoriaClinica + ". " + mas.getNombre() );
+    }
 }

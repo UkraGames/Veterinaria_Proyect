@@ -54,6 +54,10 @@ public class Citas {
     public void setIdMascota(int IdMascota) {
         this.IdMascota = IdMascota;
     }
+
+    public Date getFecha() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 }

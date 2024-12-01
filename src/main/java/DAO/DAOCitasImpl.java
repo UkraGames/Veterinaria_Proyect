@@ -33,7 +33,10 @@ public class DAOCitasImpl extends conexion implements DAOCitas {
     @Override
     public void Modificar(Citas e) throws Exception {
         try {
-            var st = DAOCitasImpl.conn.prepareStatement("");
+            var st = DAOCitasImpl.conn.prepareStatement("UPDATE `citas` SET `Fecha` = ?, `Descripcion` = ? WHERE `IdMascota` = ?;");
+            st.setDate(1, e.getFecha()); // Asegúrate de que `getFecha()` devuelve un objeto compatible (ej. java.sql.Date).
+            st.setString(2, e.getDescripcion());
+            st.setInt(3, e.getIdMascota());
         }catch(SQLException ex){
         }
     }

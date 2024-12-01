@@ -27,9 +27,6 @@ public class Main {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
-        Connection conn = null;
-        conn = conexion.getConnection();
             //</editor-fold>
           
         //</editor-fold>
