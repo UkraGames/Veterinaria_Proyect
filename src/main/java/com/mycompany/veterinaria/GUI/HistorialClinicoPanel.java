@@ -105,7 +105,7 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
         NewPanelH.setSize(1400, 560);
         setLayout(new BorderLayout());
         removeAll();
-        add(NewPanelH, java.awt.BorderLayout.WEST);
+        add(NewPanelH, java.awt.BorderLayout.CENTER);
         revalidate();
         repaint();
         

@@ -239,31 +239,38 @@ public class InsertMascota extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DocumentoDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoDueñoActionPerformed
-        documentoDueño = DocumentoDueño.getText();
+        
     }//GEN-LAST:event_DocumentoDueñoActionPerformed
 
     private void ListaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaTipoActionPerformed
-        Tipo = ListaTipo.getSelectedIndex();
+        
     }//GEN-LAST:event_ListaTipoActionPerformed
 
     private void NombrePetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombrePetActionPerformed
-        NombreMascota = NombrePet.getText();
+        
     }//GEN-LAST:event_NombrePetActionPerformed
 
     private void NombreAmoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreAmoActionPerformed
-        Dueño = NombreAmo.getText();
+        
     }//GEN-LAST:event_NombreAmoActionPerformed
 
     private void EdadPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EdadPetActionPerformed
-        try {
-            Edad = Integer.getInteger(EdadPet.getText());
-        } catch(NumberFormatException ex){
-            
-        }
+        
     }//GEN-LAST:event_EdadPetActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        documentoDueño = DocumentoDueño.getText();
+        Tipo = ListaTipo.getSelectedIndex()+1;
+        
+        raza = Raza.getText();
+        NombreMascota = NombrePet.getText();
         FechaNacimiento =  Fecha.getDate();
+        Dueño = NombreAmo.getText();
+        try {
+            Edad = Integer.parseInt(EdadPet.getText());
+        } catch(NumberFormatException ex){
+            
+        }
         Mascota user = new Mascota(documentoDueño, NombreMascota, Tipo, raza, Dueño, Edad, FechaNacimiento);
         DAOMascotaImpl up = new DAOMascotaImpl();
         try {
@@ -274,7 +281,7 @@ public class InsertMascota extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void RazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RazaActionPerformed
-        raza = Raza.getText();
+        
     }//GEN-LAST:event_RazaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

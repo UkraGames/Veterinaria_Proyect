@@ -283,7 +283,7 @@ public class menu extends javax.swing.JFrame {
         pl.setSize(1400, 560 );
         contenido.removeAll(); 
         contenido.add(pl, java.awt.BorderLayout.CENTER);
-       
+        contenido.revalidate();
         contenido.repaint();
         jLabel2.setText("Mascotas");
     }//GEN-LAST:event_BtnMascotasActionPerformed

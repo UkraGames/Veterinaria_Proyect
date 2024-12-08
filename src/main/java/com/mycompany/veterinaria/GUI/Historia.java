@@ -5,12 +5,13 @@
 package com.mycompany.veterinaria.GUI;
 
 import com.mycompany.veterinaria.DAO.DAOHistoriaClinicaImpl;
+import com.mycompany.veterinaria.DAO.DAOMascotaImpl;
 import com.mycompany.veterinaria.DAO.DAOTipoImpl;
 import com.mycompany.veterinaria.clases.HistoriaClinica;
-import com.mycompany.veterinaria.clases.TipoMascota;
-import com.mycompany.veterinaria.DB.DAOHistoriaClinica;
+
+import com.mycompany.veterinaria.DB.DAOMascota;
+import com.mycompany.veterinaria.clases.Mascota;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -27,7 +28,7 @@ public class Historia extends javax.swing.JPanel {
         Cargar();
     }
     private void Cargar(){
-        DAOHistoriaClinica dao = new DAOHistoriaClinicaImpl(); 
+        DAOMascota dao = new DAOMascotaImpl(); 
         try {
             lista = dao.Listado();
             if (lista == null) {
@@ -37,9 +38,8 @@ public class Historia extends javax.swing.JPanel {
             ex.printStackTrace();
         }
    
-        DefaultComboBoxModel<HistoriaClinica> model = new DefaultComboBoxModel<>(lista.toArray(HistoriaClinica[]::new));
-        ListaTipo.setModel(model);
-    }
+        DefaultComboBoxModel<Mascota> model = new DefaultComboBoxModel<>(lista.toArray(new Mascota[0]));
+        ListaTipo.setModel(model);    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,11 +59,13 @@ public class Historia extends javax.swing.JPanel {
         jTextArea2 = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         Upload = new javax.swing.JButton();
-        ListaTipo = new javax.swing.JComboBox<HistoriaClinica>();
+        ListaTipo = new javax.swing.JComboBox<Mascota>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setText("Inserte la fecha de la cita");
+
+        jDateChooser1.setDateFormatString("yyyy-MM-dd");
 
         jLabel2.setText("Inserte el seguimiento del paciente");
 
@@ -86,14 +88,16 @@ public class Historia extends javax.swing.JPanel {
             }
         });
 
+        ListaTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaTipoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(300, 300, 300)
-                .addComponent(Upload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(64, 64, 64))
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,6 +123,9 @@ public class Historia extends javax.swing.JPanel {
                                 .addGap(64, 64, 64))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(199, 199, 199))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Upload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,19 +146,24 @@ public class Historia extends javax.swing.JPanel {
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ListaTipo)
-                .addGap(15, 15, 15)
-                .addComponent(Upload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(19, 19, 19))
+                .addGap(18, 18, 18)
+                .addComponent(Upload)
+                .addGap(16, 16, 16))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void UploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadActionPerformed
-        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_UploadActionPerformed
+
+    private void ListaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListaTipoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<HistoriaClinica> ListaTipo;
+    private javax.swing.JComboBox<Mascota> ListaTipo;
     private javax.swing.JButton Upload;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
@@ -163,5 +175,5 @@ public class Historia extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
-    private ArrayList<HistoriaClinica> lista = new ArrayList();
+    private ArrayList<Mascota> lista = new ArrayList();
 }

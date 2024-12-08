@@ -222,10 +222,10 @@ private void LoadMascotas(String name) {
 
     private void AddPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddPetActionPerformed
     InsertMascota pl = new InsertMascota();
-    pl.setSize(1400, 560);
+    pl.setSize(1648, 798);
     setLayout(new BorderLayout());
     removeAll();
-    add(pl, java.awt.BorderLayout.WEST);
+    add(pl, java.awt.BorderLayout.CENTER);
     revalidate();
     repaint();
 

@@ -23,15 +23,18 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
     @Override
     public void Registrar(Mascota e) throws Exception {
         try{
+            java.util.Date Jdate = e.getFechaNacimiento();
+            Date sqldate = new Date(Jdate.getTime());
             this.getConnection();
-            try (java.sql.PreparedStatement st = this.conn.prepareStatement("INSERT INTO `mascota` (`DocumentoDueño`, `Nombre`, `Tipo`, `Raza`, `NombreDueño`, `Edad`, `FechaNacimiento`) VALUES ('?', '?', '?', '?', '?', '?', '?');")) {
-                st.setString(1, e.getDocumentoDueño());
-                st.setString(2, e.getNombre());
-                st.setInt(3, e.getTipo());
-                st.setString(4, e.getRaza());
-                st.setString(5, e.getNombreDueño());
-                st.setInt(6, e.getEdad());
-                st.setDate(7, (Date) e.getFechaNacimiento());
+            try (java.sql.PreparedStatement st = this.conn.prepareStatement("INSERT INTO `mascota` (IdMascota, `DocumentoDueño`, `Nombre`, `Tipo`, `Raza`, `NombreDueño`, `Edad`, `FechaNacimiento`) VALUES (?,?,?,?,?,?,?,?);")) {
+                st.setInt(1, e.getIdMascota());
+                st.setString(2, e.getDocumentoDueño());
+                st.setString(3, e.getNombre());
+                st.setInt(4, e.getTipo());
+                st.setString(5, e.getRaza());
+                st.setString(6, e.getNombreDueño());
+                st.setInt(7, e.getEdad());
+                st.setDate(8, sqldate);
                 st.executeUpdate();
             }
         }catch(SQLException ex){
@@ -45,14 +48,15 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
     public void Modificar(Mascota e) throws Exception {
         try{
             this.getConnection();
-            try (var st = conn.prepareStatement("UPDATE `mascota` SET `Nombre` = ?, `Tipo` = ?, `Raza` = ?, `NombreDueño` = ?, `Edad` = ?, `FechaNacimiento` = ?, WHERE `DocumentoDueño` = ?;")) {
-                st.setString(1, e.getNombre());
-                st.setInt(2, e.getTipo());
-                st.setString(3, e.getRaza());
-                st.setString(4, e.getNombreDueño());
-                st.setInt(5, e.getEdad());
-                st.setDate(6, (Date) e.getFechaNacimiento());
-                st.setString(7, e.getDocumentoDueño());
+            try (PreparedStatement st = conn.prepareStatement("UPDATE `mascota` SET `NombreDueño` = ?, `Nombre` = ?, `Tipo` = ?, `Raza` = ?, `NombreDueño` = ?, `Edad` = ?, `FechaNacimiento` = ?, WHERE `DocumentoDueño` = ?;")) {
+                st.setString(1, e.getDocumentoDueño());
+                st.setString(2, e.getNombre());
+                st.setInt(3, e.getTipo());
+                st.setString(4, e.getRaza());
+                st.setString(5, e.getNombreDueño());
+                st.setInt(6, e.getEdad());
+                st.setDate(7, (Date) e.getFechaNacimiento());
+                st.setString(8, e.getDocumentoDueño());
                 st.executeUpdate();
             }
         } catch(SQLException ex) {
@@ -92,6 +96,7 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
                     while (rs.next()){
                         System.out.println("Procesando fila...");
                         Mascota mascota = new Mascota();
+                        mascota.setIdMascota(rs.getInt("IdMascota"));
                         mascota.setDocumentoDueño(rs.getString("DocumentoDueño"));
                         mascota.setNombre(rs.getString("Nombre"));
                         mascota.setTipo(rs.getInt("Tipo"));
