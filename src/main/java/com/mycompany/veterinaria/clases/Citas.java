@@ -15,12 +15,17 @@ public class Citas {
     private Date FechaCita;
     private String Descripcion;
     private int IdMascota;
+    private String NombreMascota;
 
     public Citas(int IdCitas, Date FechaCita, String Descripcion, int IdMascota) {
         this.IdCitas = IdCitas;
         this.FechaCita = FechaCita;
         this.Descripcion = Descripcion;
         this.IdMascota = IdMascota;
+    }
+
+    public Citas() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public int getIdCitas() {
@@ -57,6 +62,14 @@ public class Citas {
 
     public Date getFecha() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public String getNombreMascota() {
+        return NombreMascota;
+    }
+
+    public void setNombreMascota(String NombreMascota) {
+        this.NombreMascota = NombreMascota;
     }
     
     

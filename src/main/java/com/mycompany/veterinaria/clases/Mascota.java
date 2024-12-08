@@ -21,6 +21,9 @@ public class Mascota {
         this.FechaNacimiento = FechaNacimiento;
     }
 
+    public Mascota() {
+        
+    }
     public String getDocumentoDueño() {
         return DocumentoDueño;
     }

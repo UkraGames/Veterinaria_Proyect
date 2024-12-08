@@ -4,9 +4,9 @@
  */
 package com.mycompany.veterinaria.GUI;
 
-import DAO.DAOHistoriaClinicaImpl;
-import DAO.DAOTipoImpl;
+
 import com.mycompany.veterinaria.clases.HistoriaClinica;
+import java.awt.BorderLayout;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -36,7 +36,7 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Insert = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,30 +78,47 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, -1, 40));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 227, 42));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 50, -1, 30));
 
-        jButton2.setText("Insertar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 80, 30));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 227, 30));
+
+        Insert.setText("Insertar");
+        Insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertActionPerformed(evt);
+            }
+        });
+        add(Insert, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 80, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertActionPerformed
+        Historia NewPanelH = new Historia();
+        NewPanelH.setSize(1400, 560);
+        setLayout(new BorderLayout());
+        removeAll();
+        add(NewPanelH, java.awt.BorderLayout.WEST);
+        revalidate();
+        repaint();
+        
+    }//GEN-LAST:event_InsertActionPerformed
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Insert;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;

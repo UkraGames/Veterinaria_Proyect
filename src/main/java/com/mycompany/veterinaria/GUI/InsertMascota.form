@@ -25,34 +25,51 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" pref="180" max="-2" attributes="0"/>
-                  <Component id="DocumentoDueño" min="-2" pref="180" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" pref="180" max="-2" attributes="0"/>
-                  <Component id="NombrePet" min="-2" pref="180" max="-2" attributes="0"/>
-                  <Component id="jLabel3" min="-2" pref="180" max="-2" attributes="0"/>
-                  <Component id="ListaTipo" min="-2" pref="180" max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" pref="140" max="-2" attributes="0"/>
-                  <Component id="Raza" min="-2" pref="180" max="-2" attributes="0"/>
-                  <Component id="jLabel5" min="-2" pref="110" max="-2" attributes="0"/>
-                  <Component id="NombreAmo" min="-2" pref="180" max="-2" attributes="0"/>
-                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  <Component id="EdadPet" min="-2" pref="180" max="-2" attributes="0"/>
+                  <Component id="jLabel1" max="32767" attributes="0"/>
+                  <Component id="DocumentoDueño" max="32767" attributes="0"/>
+                  <Component id="jLabel2" max="32767" attributes="0"/>
+                  <Component id="NombrePet" max="32767" attributes="0"/>
+                  <Component id="jLabel3" max="32767" attributes="0"/>
+                  <Component id="ListaTipo" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel4" max="32767" attributes="0"/>
+                      <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="Raza" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel5" max="32767" attributes="0"/>
+                      <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="NombreAmo" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel6" max="32767" attributes="0"/>
+                      <EmptySpace min="75" pref="75" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="EdadPet" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="139" pref="139" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel7" max="32767" attributes="0"/>
+                      <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Fecha" min="-2" pref="134" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="113" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="113" max="-2" attributes="0"/>
+                          <Component id="Fecha" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="188" pref="188" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
               <Component id="jScrollBar1" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -60,42 +77,44 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-              <Component id="DocumentoDueño" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-              <Component id="NombrePet" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
-              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-              <Component id="ListaTipo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
-              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-              <Component id="Raza" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-              <Component id="NombreAmo" min="-2" pref="20" max="-2" attributes="0"/>
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="jLabel6" min="-2" pref="20" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="EdadPet" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Component id="jLabel1" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Component id="DocumentoDueño" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Component id="jLabel2" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Component id="NombrePet" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Component id="jLabel3" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Component id="ListaTipo" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Component id="jLabel4" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Component id="Raza" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="jLabel5" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Component id="NombreAmo" pref="20" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Component id="jLabel6" pref="20" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+              <Component id="EdadPet" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-              <Component id="Fecha" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="98" pref="98" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="48" max="-2" attributes="0"/>
-              <EmptySpace min="142" pref="142" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Component id="jLabel7" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+              <Component id="Fecha" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+              <Component id="jButton1" pref="48" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+              <Component id="jButton2" pref="48" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
-          <Component id="jScrollBar1" min="-2" pref="431" max="-2" attributes="0"/>
+          <Component id="jScrollBar1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -127,7 +146,7 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="ListaTipo">
       <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor" preCode="DAOTipoImpl dao = new DAOTipoImpl(); &#xa;try {&#xa;    lista = dao.Listado();&#xa;    if (lista == null) {&#xa;    lista = new ArrayList&lt;&gt;();&#xa;}&#xa;}catch(Exception ex){&#xa;    ex.printStackTrace();&#xa;}&#xa;&#xa;DefaultComboBoxModel&lt;TipoMascota&gt; model = new DefaultComboBoxModel&lt;&gt;(lista.toArray(new TipoMascota[0]));&#xa;ListaTipo.setModel(model);">
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
             <LineBorder/>
           </Border>

@@ -2,14 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DAO;
+package com.mycompany.veterinaria.DAO;
 
 import com.mycompany.veterinaria.clases.Mascota;
-import com.mycompany.veterinaria.conexion.DAOMascota;
-import com.mycompany.veterinaria.conexion.conexion;
+import com.mycompany.veterinaria.DB.DAOMascota;
+import com.mycompany.veterinaria.DB.conexion;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
     public void Registrar(Mascota e) throws Exception {
         try{
             this.getConnection();
-            try (java.sql.PreparedStatement st = DAOMascotaImpl.conn.prepareStatement("INSERT INTO `mascota` (`DocumentoDueño`, `Nombre`, `Tipo`, `Raza`, `NombreDueño`, `Edad`, `FechaNacimiento`) VALUES ('?', '?', '?', '?', '?', '?', '?');")) {
+            try (java.sql.PreparedStatement st = this.conn.prepareStatement("INSERT INTO `mascota` (`DocumentoDueño`, `Nombre`, `Tipo`, `Raza`, `NombreDueño`, `Edad`, `FechaNacimiento`) VALUES ('?', '?', '?', '?', '?', '?', '?');")) {
                 st.setString(1, e.getDocumentoDueño());
                 st.setString(2, e.getNombre());
                 st.setInt(3, e.getTipo());
@@ -33,7 +34,7 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
                 st.setDate(7, (Date) e.getFechaNacimiento());
                 st.executeUpdate();
             }
-        }catch(ClassNotFoundException | SQLException ex){
+        }catch(SQLException ex){
             throw ex;
         } finally {
             this.Close();
@@ -44,7 +45,7 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
     public void Modificar(Mascota e) throws Exception {
         try{
             this.getConnection();
-            try (java.sql.PreparedStatement st = DAOMascotaImpl.conn.prepareStatement("UPDATE `mascota` SET `Nombre` = ?, `Tipo` = ?, `Raza` = ?, `NombreDueño` = ?, `Edad` = ?, `FechaNacimiento` = ?, WHERE `DocumentoDueño` = ?;")) {
+            try (var st = conn.prepareStatement("UPDATE `mascota` SET `Nombre` = ?, `Tipo` = ?, `Raza` = ?, `NombreDueño` = ?, `Edad` = ?, `FechaNacimiento` = ?, WHERE `DocumentoDueño` = ?;")) {
                 st.setString(1, e.getNombre());
                 st.setInt(2, e.getTipo());
                 st.setString(3, e.getRaza());
@@ -54,7 +55,7 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
                 st.setString(7, e.getDocumentoDueño());
                 st.executeUpdate();
             }
-        } catch(ClassNotFoundException | SQLException ex) {
+        } catch(SQLException ex) {
         
         } finally {
             this.Close();
@@ -65,14 +66,14 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
     public void Eliminar(Mascota e) throws Exception {
         try{
             this.getConnection();
-            try (var st = DAOMascotaImpl.conn.prepareStatement("DELETE FROM mascota WHERE DocumentoDueño = '?' AND Nombre = '?';")){
+            try (var st = this.conn.prepareStatement("DELETE FROM mascota WHERE DocumentoDueño = '?' AND Nombre = '?';")){
                 st.setString(1, e.getDocumentoDueño());
                 st.setString(2, e.getNombreDueño());
                 st.executeUpdate();
             }
                 
             
-        } catch(ClassNotFoundException | SQLException ex) {
+        } catch(SQLException ex) {
         
         } finally {
             this.Close();
@@ -81,12 +82,66 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
 
     @Override
     public ArrayList<Mascota> Listado() throws Exception {
+        ArrayList<Mascota> Lista = new ArrayList();
         try{
-        
-        } catch(Exception ex) {
-        
+            this.getConnection();
+            try (PreparedStatement st = conn.prepareStatement("SELECT * FROM mascota")){
+                
+                try(ResultSet rs = st.executeQuery()){
+                    System.out.println("Ejecutando consuta...");
+                    while (rs.next()){
+                        System.out.println("Procesando fila...");
+                        Mascota mascota = new Mascota();
+                        mascota.setDocumentoDueño(rs.getString("DocumentoDueño"));
+                        mascota.setNombre(rs.getString("Nombre"));
+                        mascota.setTipo(rs.getInt("Tipo"));
+                        mascota.setRaza(rs.getString("Raza"));
+                        mascota.setNombreDueño(rs.getString("NombreDueño"));
+                        mascota.setEdad(rs.getInt("Edad"));
+                        mascota.setFechaNacimiento(rs.getDate("FechaNacimiento"));
+                        Lista.add(mascota);
+                    }
+                }
+                if (Lista.isEmpty()) {
+                    System.out.println("Advertencia: No se encontraron registros en la tabla 'mascota'.");
+                }
+            }
+        } catch(SQLException ex) {
+            ex.getErrorCode();
+        } finally {
+            this.Close();
+            System.out.println("Cerrando...");
         }
-        return null;
+          if (Lista.isEmpty()) {
+        System.out.println("Advertencia: No se encontraron registros en la tabla 'mascota'.");
+        }
+        return Lista;
     }
     
+    @Override
+    public ArrayList<Mascota> Busqueda(String e) throws Exception{
+        ArrayList<Mascota> Query = new ArrayList();
+        try {
+            this.getConnection();
+            
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM macota WHERE Nombre = ?");
+            st.setString(1, e);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                Mascota mascota = new Mascota();
+                mascota.setDocumentoDueño(rs.getString("DocumentoDueño"));
+                mascota.setNombre(rs.getString("Nombre"));
+                mascota.setTipo(rs.getInt("Tipo"));
+                mascota.setRaza(rs.getString("Raza"));
+                mascota.setNombreDueño(rs.getString("NombreDueño"));
+                mascota.setEdad(rs.getInt("Edad"));
+                mascota.setFechaNacimiento(rs.getDate("FechaNacimiento"));
+                Query.add(mascota);
+            }
+            
+            
+        }catch(SQLException ex){
+        }
+    return Query;    
+    }
 }

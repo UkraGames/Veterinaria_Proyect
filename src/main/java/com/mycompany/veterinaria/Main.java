@@ -4,7 +4,7 @@
  */
 package com.mycompany.veterinaria;
 import com.mycompany.veterinaria.GUI.menu;
-import com.mycompany.veterinaria.conexion.conexion;
+import com.mycompany.veterinaria.DB.conexion;
 import java.sql.Connection;
 /**
  *

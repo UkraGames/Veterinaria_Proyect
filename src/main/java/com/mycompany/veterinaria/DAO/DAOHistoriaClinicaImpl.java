@@ -1,9 +1,9 @@
 
-package DAO;
+package com.mycompany.veterinaria.DAO;
 import com.mycompany.veterinaria.clases.HistoriaClinica;
 import com.mycompany.veterinaria.clases.Mascota;
-import com.mycompany.veterinaria.conexion.DAOHistoriaClinica;
-import com.mycompany.veterinaria.conexion.conexion;
+import com.mycompany.veterinaria.DB.DAOHistoriaClinica;
+import com.mycompany.veterinaria.DB.conexion;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -15,13 +15,13 @@ public class DAOHistoriaClinicaImpl extends conexion implements DAOHistoriaClini
     @Override
     public void Registar(HistoriaClinica e) throws Exception {
         try{
-            var st = DAOHistoriaClinicaImpl.conn.prepareStatement("INSERT INTO historiaclinica (FechaCita, Seguimiento, Recetado, idMascota) VALUES (?, ?, ?, ?)");
-            st.setDate(1, (Date) e.getFechaCita());
-            st.setString(2, e.getSeguimiento()); 
-            st.setString(3, e.getRecetado());
-            st.setInt(4, e.getIdMascota());
-            st.close();
-        }catch(Exception ex){
+            try (java.sql.PreparedStatement st = this.conn.prepareStatement("INSERT INTO historiaclinica (FechaCita, Seguimiento, Recetado, idMascota) VALUES (?, ?, ?, ?)")) {
+                st.setDate(1, (Date) e.getFechaCita());
+                st.setString(2, e.getSeguimiento());
+                st.setString(3, e.getRecetado());
+                st.setInt(4, e.getIdMascota());
+            }
+        }catch(SQLException ex){
         
         }
     }
@@ -35,32 +35,33 @@ public class DAOHistoriaClinicaImpl extends conexion implements DAOHistoriaClini
             st.setString(3, e.getRecetado());
             st.setInt(4, e.getIdMascota());
 
-        }catch(Exception ex){
+        }catch(SQLException ex){
             
         }
     }
 
     @Override
     public ArrayList<HistoriaClinica> Listado() throws Exception {
-                ArrayList<HistoriaClinica> Lista = null;
+        ArrayList<HistoriaClinica> Lista = null;
         try {
-            PreparedStatement st = DAOTipoImpl.conn.prepareStatement("SELECT * FROM tipomascota;");
-        
-            Lista = new ArrayList();
-            ResultSet rs = st.executeQuery();
-            while (rs.next()){
-                HistoriaClinica histo = new HistoriaClinica();
-                histo.setIdHistoriaClinica(rs.getInt("IdTipoMascota"));
-                histo.setFechaCita(rs.getDate("FechaCita"));
-                histo.setSeguimiento(rs.getString("Seguimiento"));
-                histo.setRecetado(rs.getString("Recetado"));
-                histo.setIdMascota(rs.getInt("IdMascota"));
-                Lista.add(histo);
+            this.getConnection();
+            try (PreparedStatement st = this.conn.prepareStatement("SELECT * FROM tipomascota;")) {
+                Lista = new ArrayList();
+                try (ResultSet rs = st.executeQuery()) {
+                    while (rs.next()){
+                        HistoriaClinica histo = new HistoriaClinica();
+                        histo.setIdHistoriaClinica(rs.getInt("IdTipoMascota"));
+                        histo.setFechaCita(rs.getDate("FechaCita"));
+                        histo.setSeguimiento(rs.getString("Seguimiento"));
+                        histo.setRecetado(rs.getString("Recetado"));
+                        histo.setIdMascota(rs.getInt("IdMascota"));
+                        Lista.add(histo);
+                    }
+                }
             }
-            rs.close();
-            st.close();
-            
         }catch(SQLException ex){
+        }finally {
+            this.Close();
         }
         return Lista;
     }
