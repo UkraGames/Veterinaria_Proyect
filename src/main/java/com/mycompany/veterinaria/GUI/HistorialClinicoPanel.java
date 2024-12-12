@@ -5,10 +5,14 @@
 package com.mycompany.veterinaria.GUI;
 
 
+import com.mycompany.veterinaria.DAO.DAOHistoriaClinicaImpl;
+import com.mycompany.veterinaria.DB.DAOHistoriaClinica;
 import com.mycompany.veterinaria.clases.HistoriaClinica;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,8 +25,33 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
      */
     public HistorialClinicoPanel() {
         initComponents();
+        loadHistorial();
     }
+    
+    /**
+     *
+     */
+    private void loadHistorial(){
+        try{
+            DAOHistoriaClinica dao = new DAOHistoriaClinicaImpl();
+            ArrayList<HistoriaClinica> lista = dao.Listado();
+            DefaultTableModel model = (DefaultTableModel) tablaHistorial.getModel();
+            for(int i = 0; i < lista.size(); i++){
+                model.addRow(new Object[]{
+                lista.get(i).getIdHistoriaClinica(),
+                lista.get(i).getFechaCita(),
+                lista.get(i).getSeguimiento(),
+                lista.get(i).getRecetado(),
+                lista.get(i).getIdMascota()
+                });
+                
 
+            }
+        }catch(Exception e){
+            e.getMessage();
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,60 +61,26 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        queryBottom = new javax.swing.JButton();
+        toQuery = new javax.swing.JTextField();
         Insert = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaHistorial = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Id Historia Clinica", "Fecha de la Cita", "Mascota", "Seguimiento", "Recetado"
-            }
-        ));
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jTable1);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 960, 530));
-
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        queryBottom.setText("Buscar");
+        queryBottom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                queryBottomActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 50, -1, 30));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        toQuery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                toQueryActionPerformed(evt);
             }
         });
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 227, 30));
 
         Insert.setText("Insertar");
         Insert.addActionListener(new java.awt.event.ActionListener() {
@@ -93,12 +88,59 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
                 InsertActionPerformed(evt);
             }
         });
-        add(Insert, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 80, 30));
+
+        tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "idHistoria", "Fecha", "Seguimiento", "Recetado", "Mascota"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tablaHistorial);
+        if (tablaHistorial.getColumnModel().getColumnCount() > 0) {
+            tablaHistorial.getColumnModel().getColumn(2).setResizable(false);
+            tablaHistorial.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(Insert, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addGap(480, 480, 480)
+                .addComponent(toQuery, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                .addGap(3, 3, 3)
+                .addComponent(queryBottom)
+                .addGap(23, 23, 23))
+            .addComponent(jScrollPane2)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toQuery, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(queryBottom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void queryBottomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_queryBottomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_queryBottomActionPerformed
 
     private void InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertActionPerformed
         Historia NewPanelH = new Historia();
@@ -111,16 +153,16 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_InsertActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void toQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toQueryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_toQueryActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Insert;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton queryBottom;
+    private javax.swing.JTable tablaHistorial;
+    private javax.swing.JTextField toQuery;
     // End of variables declaration//GEN-END:variables
 }

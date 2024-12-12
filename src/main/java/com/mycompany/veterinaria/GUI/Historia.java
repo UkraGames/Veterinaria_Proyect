@@ -12,6 +12,8 @@ import com.mycompany.veterinaria.clases.HistoriaClinica;
 import com.mycompany.veterinaria.DB.DAOMascota;
 import com.mycompany.veterinaria.clases.Mascota;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -50,13 +52,13 @@ public class Historia extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        FechaCita = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Segumiento = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        Recetado = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         Upload = new javax.swing.JButton();
         ListaTipo = new javax.swing.JComboBox<Mascota>();
@@ -65,19 +67,19 @@ public class Historia extends javax.swing.JPanel {
 
         jLabel1.setText("Inserte la fecha de la cita");
 
-        jDateChooser1.setDateFormatString("yyyy-MM-dd");
+        FechaCita.setDateFormatString("yyyy-MM-dd");
 
         jLabel2.setText("Inserte el seguimiento del paciente");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        Segumiento.setColumns(20);
+        Segumiento.setRows(5);
+        jScrollPane1.setViewportView(Segumiento);
 
         jLabel3.setText("Inserte lo que se recetó a paciente");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        Recetado.setColumns(20);
+        Recetado.setRows(5);
+        jScrollPane2.setViewportView(Recetado);
 
         jLabel4.setText("Seleccione a la mascota");
 
@@ -119,7 +121,7 @@ public class Historia extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(FechaCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(64, 64, 64))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(199, 199, 199))))
@@ -133,7 +135,7 @@ public class Historia extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(FechaCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -153,27 +155,39 @@ public class Historia extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadActionPerformed
+        java.util.Date NoSqlDate = FechaCita.getDate();
+        var seg = Segumiento.getText();
+        var rec = Recetado.getText();
+        var idMascota = ListaTipo.getSelectedIndex()+1;
+        HistoriaClinica hs = new HistoriaClinica(NoSqlDate, seg, rec, idMascota);
+        com.mycompany.veterinaria.DAO.DAOHistoriaClinicaImpl dao = new DAOHistoriaClinicaImpl();
+        try {
+            dao.Registar(hs);
+        } catch (Exception ex) {
+            Logger.getLogger(Historia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
         
     }//GEN-LAST:event_UploadActionPerformed
 
     private void ListaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaTipoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ListaTipoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser FechaCita;
     private javax.swing.JComboBox<Mascota> ListaTipo;
+    private javax.swing.JTextArea Recetado;
+    private javax.swing.JTextArea Segumiento;
     private javax.swing.JButton Upload;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
     private ArrayList<Mascota> lista = new ArrayList();
 }

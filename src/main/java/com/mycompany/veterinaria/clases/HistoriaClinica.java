@@ -15,8 +15,7 @@ public class HistoriaClinica {
     private int IdMascota;
     Mascota mas;
 
-    public HistoriaClinica(int IdHistoriaClinica, Date FechaCita, String Seguimiento, String Recetado, int IdMascota) {
-        this.IdHistoriaClinica = IdHistoriaClinica;
+    public HistoriaClinica(Date FechaCita, String Seguimiento, String Recetado, int IdMascota) {
         this.FechaCita = FechaCita;
         this.Seguimiento = Seguimiento;
         this.Recetado = Recetado;
