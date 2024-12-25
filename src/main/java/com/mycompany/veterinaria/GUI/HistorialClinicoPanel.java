@@ -32,6 +32,7 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
      *
      */
     private void loadHistorial(){
+        tablaHistorial.removeAll();
         try{
             DAOHistoriaClinica dao = new DAOHistoriaClinicaImpl();
             ArrayList<HistoriaClinica> lista = dao.Listado();
@@ -66,6 +67,7 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
         Insert = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaHistorial = new javax.swing.JTable();
+        UpdateBttm = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -111,15 +113,24 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
             tablaHistorial.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        UpdateBttm.setText("Actualizar");
+        UpdateBttm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateBttmActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(Insert, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                .addGap(480, 480, 480)
-                .addComponent(toQuery, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                .addComponent(Insert, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                .addGap(72, 72, 72)
+                .addComponent(UpdateBttm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(331, 331, 331)
+                .addComponent(toQuery, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                 .addGap(3, 3, 3)
                 .addComponent(queryBottom)
                 .addGap(23, 23, 23))
@@ -130,7 +141,9 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(UpdateBttm))
                     .addComponent(toQuery, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(queryBottom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
@@ -157,9 +170,16 @@ public class HistorialClinicoPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_toQueryActionPerformed
 
+    private void UpdateBttmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBttmActionPerformed
+
+        initComponents();
+        loadHistorial();       // TODO add your handling code here:
+    }//GEN-LAST:event_UpdateBttmActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Insert;
+    private javax.swing.JButton UpdateBttm;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton queryBottom;
     private javax.swing.JTable tablaHistorial;
