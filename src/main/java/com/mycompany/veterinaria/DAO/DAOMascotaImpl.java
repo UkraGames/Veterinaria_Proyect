@@ -7,7 +7,6 @@ package com.mycompany.veterinaria.DAO;
 import com.mycompany.veterinaria.clases.Mascota;
 import com.mycompany.veterinaria.DB.DAOMascota;
 import com.mycompany.veterinaria.DB.conexion;
-import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

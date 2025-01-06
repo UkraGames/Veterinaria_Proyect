@@ -14,25 +14,28 @@ public class conexion {
     private static final String USER = "root";
     private static final String PASS = "";
    
+    /**
+     *
+     */
     public void getConnection() {
         try {
             conn = DriverManager.getConnection(URL, USER, PASS);
-            System.out.println("Conexión exitosa a la base de datos");
         } catch (SQLException e) {
             System.out.println("Error al conectar" + e.getMessage());
         }
     }
+
+    /**
+     *
+     * @throws SQLException
+     */
     public void Close() throws SQLException {
     if (conn == null) {
-        System.out.println("La conexión ya es nula, no se puede cerrar.");
         return;
     }
     if (conn.isClosed()) {
-        System.out.println("La conexión ya estaba cerrada.");
     } else {
-        System.out.println("Cerrando la conexión...");
         conn.close();
-        System.out.println("Conexión cerrada correctamente.");
     }
 }
 }   

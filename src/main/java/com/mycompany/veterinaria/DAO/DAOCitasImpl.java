@@ -6,7 +6,6 @@ package com.mycompany.veterinaria.DAO;
 import com.mycompany.veterinaria.clases.Citas;
 import com.mycompany.veterinaria.DB.DAOCitas;
 import com.mycompany.veterinaria.DB.conexion;
-import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,11 +19,12 @@ public class DAOCitasImpl extends conexion implements DAOCitas {
 
     @Override
     public void Registar(Citas e) throws Exception {
-        java.sql.Date SQLDate = (java.sql.Date) e.getFecha();
+        
+        Date SQLdate = new Date(e.getFecha().getTime());
         try {
             getConnection();
             try (java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO citas(Fecha, Descripcion, IdMascota) VALUES (?, ?, ?)")) {
-                st.setDate(0, SQLDate);
+                st.setDate(0, SQLdate);
                 st.setString(1, e.getDescripcion());
                 st.setInt(2, e.getIdMascota());
                 st.executeUpdate();

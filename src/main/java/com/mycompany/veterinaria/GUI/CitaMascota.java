@@ -142,6 +142,10 @@ public class CitaMascota extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        panelCitas();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void panelCitas(){
         AgendarCitas pl = new AgendarCitas();
         pl.setSize(1400, 560);
         setLayout(new BorderLayout());
@@ -149,9 +153,10 @@ public class CitaMascota extends javax.swing.JPanel {
         add(pl, java.awt.BorderLayout.CENTER);
         revalidate();
         repaint();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-
+    }
+    private void loadList(){
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable historialCitasTabla;
     private javax.swing.JButton jButton1;
