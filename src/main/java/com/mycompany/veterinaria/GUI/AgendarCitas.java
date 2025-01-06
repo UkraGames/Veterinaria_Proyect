@@ -4,10 +4,16 @@
  */
 package com.mycompany.veterinaria.GUI;
 
+import com.mycompany.veterinaria.DAO.DAOCitasImpl;
 import com.mycompany.veterinaria.DAO.DAOMascotaImpl;
+import com.mycompany.veterinaria.DB.DAOCitas;
 import com.mycompany.veterinaria.DB.DAOMascota;
+import com.mycompany.veterinaria.clases.Citas;
 import com.mycompany.veterinaria.clases.Mascota;
+import java.util.Date;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -52,6 +58,8 @@ public class AgendarCitas extends javax.swing.JPanel {
         });
 
         jLabel2.setText("Descripción de la cita");
+
+        jDateChooser1.setDateFormatString("yyyy-MM-dd");
 
         jLabel3.setText("Seleccione al paciente que quiere agendar la cita");
 
@@ -124,7 +132,7 @@ public class AgendarCitas extends javax.swing.JPanel {
             ex.printStackTrace();
         }
    
-        DefaultComboBoxModel<Mascota> model = new DefaultComboBoxModel<>(lista.toArray(new Mascota[0]));
+        DefaultComboBoxModel<Mascota> model = new DefaultComboBoxModel<>(lista.toArray(Mascota[]::new));
         SelectPet.setModel(model);    
     }
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -132,11 +140,20 @@ public class AgendarCitas extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void UploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadActionPerformed
-        
+      Date fechaCita = jDateChooser1.getDate();
+        String descp = jTextField2.getText();
+        int IdMascota = SelectPet.getSelectedIndex()+1;
+        Citas citasObj = new Citas(fechaCita, descp, IdMascota);
+        DAOCitas dao = new DAOCitasImpl();
+        try {
+            dao.Registar(citasObj);
+        } catch (Exception ex) {
+            Logger.getLogger(AgendarCitas.class.getName()).log(Level.SEVERE, null, ex);
+        }  
     }//GEN-LAST:event_UploadActionPerformed
 
     private void SelectPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectPetActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_SelectPetActionPerformed
 
     private ArrayList<Mascota> lista = new ArrayList();

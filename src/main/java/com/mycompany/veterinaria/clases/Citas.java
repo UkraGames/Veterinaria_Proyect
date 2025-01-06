@@ -4,7 +4,7 @@
  */
 package com.mycompany.veterinaria.clases;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
@@ -17,8 +17,8 @@ public class Citas {
     private int IdMascota;
     private String NombreMascota;
 
-    public Citas(int IdCitas, Date FechaCita, String Descripcion, int IdMascota) {
-        this.IdCitas = IdCitas;
+    public Citas(Date FechaCita, String Descripcion, int IdMascota) {
+        
         this.FechaCita = FechaCita;
         this.Descripcion = Descripcion;
         this.IdMascota = IdMascota;
@@ -61,7 +61,7 @@ public class Citas {
     }
 
     public Date getFecha() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return FechaCita;
     }
 
     public String getNombreMascota() {
