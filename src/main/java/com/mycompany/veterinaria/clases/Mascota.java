@@ -3,7 +3,7 @@ package com.mycompany.veterinaria.clases;
 import java.util.Date;
 
 public class Mascota {
-    private int IdMascota;
+    
     private String DocumentoDueño;
     private String Nombre;
     private int Tipo;
@@ -21,14 +21,6 @@ public class Mascota {
         this.NombreDueño = NombreDueño;
         this.Edad = Edad;
         this.FechaNacimiento = FechaNacimiento;
-    }
-
-    public int getIdMascota() {
-        return IdMascota;
-    }
-
-    public void setIdMascota(int IdMascota) {
-        this.IdMascota = IdMascota;
     }
 
     public Mascota() {
@@ -90,10 +82,6 @@ public class Mascota {
         this.FechaNacimiento = FechaNacimiento;
     }
     
-    @Override
-    public String toString(){
-        return (IdMascota +" - " + Nombre);
-    }
     
     
 }

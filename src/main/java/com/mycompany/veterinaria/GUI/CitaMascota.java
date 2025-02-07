@@ -4,7 +4,11 @@
  */
 package com.mycompany.veterinaria.GUI;
 
+import com.mycompany.veterinaria.DAO.DAOCitasImpl;
+import com.mycompany.veterinaria.DB.DAOCitas;
+import com.mycompany.veterinaria.clases.Citas;
 import java.awt.BorderLayout;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,6 +21,7 @@ public class CitaMascota extends javax.swing.JPanel {
      */
     public CitaMascota() {
         initComponents();
+        loadCitas();
     }
 
     /**
@@ -144,7 +149,7 @@ public class CitaMascota extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         panelCitas();
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    //Esto hará que al oprimir el botón se pueda subir y crear un objeto a la base de datos
     private void panelCitas(){
         AgendarCitas pl = new AgendarCitas();
         pl.setSize(1400, 560);
@@ -154,8 +159,25 @@ public class CitaMascota extends javax.swing.JPanel {
         revalidate();
         repaint();
     }
-    private void loadList(){
-        
+    //Esto cargará las citas en la tabla
+    private void loadCitas(){
+        try {
+            DAOCitas dao = new DAOCitasImpl();
+            var list = dao.Listado();
+            DefaultTableModel model = (DefaultTableModel) historialCitasTabla.getModel();
+            for (Citas list1 : list) {
+                model.addRow(new Object[]{
+                    list1.getIdCitas(),
+                    list1.getFechaCita(),
+                    list1.getDescripcion(),
+                    list1.getNombreMascota()
+            
+                });
+                        
+            }
+        } catch(Exception e){
+            
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable historialCitasTabla;

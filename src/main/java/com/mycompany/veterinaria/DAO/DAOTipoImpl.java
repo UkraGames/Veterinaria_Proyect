@@ -17,7 +17,7 @@ public class DAOTipoImpl extends conexion implements DAOTipo {
     public void Registar(TipoMascota e) throws Exception {
         try {
             this.getConnection();
-            try (java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO `tipomascota`(`Descripcion`) VALUES (?);")) {
+            try (java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO `TipoMascota`(`Descripcion`) VALUES (?);")) {
                 st.setString(1, e.getDescripcion());
                 st.executeUpdate();
             }
@@ -31,7 +31,7 @@ public class DAOTipoImpl extends conexion implements DAOTipo {
     public void Modificar(TipoMascota e) throws Exception {
         try {
             this.getConnection();
-            try (java.sql.PreparedStatement st = conn.prepareStatement("UPTADE tipomascota SET Descripcion = ? WHERE IdTipoMascota = ?")) {
+            try (java.sql.PreparedStatement st = conn.prepareStatement("UPTADE TipoMascota SET Descripcion = ? WHERE IdTipoMascota = ?")) {
                 st.setString(1, e.getDescripcion());
                 st.setInt(2, e.getIdTipoMascota());
                 st.executeUpdate();
@@ -48,7 +48,7 @@ public class DAOTipoImpl extends conexion implements DAOTipo {
         ArrayList<TipoMascota> Lista = new ArrayList();
         try {
             this.getConnection();
-            try (PreparedStatement st = conn.prepareStatement("SELECT * FROM tipomascota;")) {
+            try (PreparedStatement st = conn.prepareStatement("SELECT * FROM TipoMascota;")) {
                 
                 try (ResultSet rs = st.executeQuery()) {
                     while (rs.next()){

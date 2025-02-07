@@ -25,15 +25,14 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
             java.util.Date Jdate = e.getFechaNacimiento();
             Date sqldate = new Date(Jdate.getTime());
             this.getConnection();
-            try (java.sql.PreparedStatement st = this.conn.prepareStatement("INSERT INTO `mascota` (IdMascota, `DocumentoDueño`, `Nombre`, `Tipo`, `Raza`, `NombreDueño`, `Edad`, `FechaNacimiento`) VALUES (?,?,?,?,?,?,?,?);")) {
-                st.setInt(1, e.getIdMascota());
-                st.setString(2, e.getDocumentoDueño());
-                st.setString(3, e.getNombre());
-                st.setInt(4, e.getTipo());
-                st.setString(5, e.getRaza());
-                st.setString(6, e.getNombreDueño());
-                st.setInt(7, e.getEdad());
-                st.setDate(8, sqldate);
+            try (java.sql.PreparedStatement st = this.conn.prepareStatement("INSERT INTO `Mascota` (`DocumentoDueño`, `Nombre`, `Tipo`, `Raza`, `NombreDueño`, `Edad`, `FechaNacimiento`) VALUES (?,?,?,?,?,?,?);")) {
+                st.setString(1, e.getDocumentoDueño());
+                st.setString(2, e.getNombre());
+                st.setInt(3, e.getTipo());
+                st.setString(4, e.getRaza());
+                st.setString(5, e.getNombreDueño());
+                st.setInt(6, e.getEdad());
+                st.setDate(7, sqldate);
                 st.executeUpdate();
             }
         }catch(SQLException ex){
@@ -47,7 +46,7 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
     public void Modificar(Mascota e) throws Exception {
         try{
             this.getConnection();
-            try (PreparedStatement st = conn.prepareStatement("UPDATE `mascota` SET `NombreDueño` = ?, `Nombre` = ?, `Tipo` = ?, `Raza` = ?, `NombreDueño` = ?, `Edad` = ?, `FechaNacimiento` = ?, WHERE `DocumentoDueño` = ?;")) {
+            try (PreparedStatement st = conn.prepareStatement("UPDATE `Mascota` SET `NombreDueño` = ?, `Nombre` = ?, `Tipo` = ?, `Raza` = ?, `NombreDueño` = ?, `Edad` = ?, `FechaNacimiento` = ?, WHERE `DocumentoDueño` = ?;")) {
                 st.setString(1, e.getDocumentoDueño());
                 st.setString(2, e.getNombre());
                 st.setInt(3, e.getTipo());
@@ -69,7 +68,7 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
     public void Eliminar(Mascota e) throws Exception {
         try{
             this.getConnection();
-            try (var st = this.conn.prepareStatement("DELETE FROM mascota WHERE DocumentoDueño = '?' AND Nombre = '?';")){
+            try (var st = this.conn.prepareStatement("DELETE FROM Mascota WHERE DocumentoDueño = '?' AND Nombre = '?';")){
                 st.setString(1, e.getDocumentoDueño());
                 st.setString(2, e.getNombreDueño());
                 st.executeUpdate();
@@ -88,14 +87,14 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
         ArrayList<Mascota> Lista = new ArrayList();
         try{
             this.getConnection();
-            try (PreparedStatement st = conn.prepareStatement("SELECT * FROM mascota")){
+            try (PreparedStatement st = conn.prepareStatement("SELECT * FROM Mascota")){
                 
                 try(ResultSet rs = st.executeQuery()){
                     System.out.println("Ejecutando consuta...");
                     while (rs.next()){
                         System.out.println("Procesando fila...");
                         Mascota mascota = new Mascota();
-                        mascota.setIdMascota(rs.getInt("IdMascota"));
+                        
                         mascota.setDocumentoDueño(rs.getString("DocumentoDueño"));
                         mascota.setNombre(rs.getString("Nombre"));
                         mascota.setTipo(rs.getInt("Tipo"));
@@ -128,7 +127,7 @@ public class DAOMascotaImpl extends conexion implements DAOMascota{
         try {
             this.getConnection();
             
-            PreparedStatement st = conn.prepareStatement("SELECT * FROM macota WHERE Nombre = ?");
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM Macota WHERE Nombre = ?");
             st.setString(1, e);
             ResultSet rs = st.executeQuery();
             while(rs.next()){

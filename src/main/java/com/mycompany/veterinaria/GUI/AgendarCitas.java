@@ -44,7 +44,7 @@ public class AgendarCitas extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
-        SelectPet = new javax.swing.JComboBox<Mascota>();
+        SelectPet = new javax.swing.JComboBox<String>();
         Upload = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -132,7 +132,10 @@ public class AgendarCitas extends javax.swing.JPanel {
             ex.printStackTrace();
         }
    
-        DefaultComboBoxModel<Mascota> model = new DefaultComboBoxModel<>(lista.toArray(Mascota[]::new));
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (int i = 0; i < lista.size(); i++)
+            model.addElement((i+1) + " - " + lista.get(i).getNombre());
+                
         SelectPet.setModel(model);    
     }
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -158,7 +161,7 @@ public class AgendarCitas extends javax.swing.JPanel {
 
     private ArrayList<Mascota> lista = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<Mascota> SelectPet;
+    private javax.swing.JComboBox<String> SelectPet;
     private javax.swing.JButton Upload;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;

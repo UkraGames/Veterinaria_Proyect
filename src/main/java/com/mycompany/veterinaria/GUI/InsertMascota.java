@@ -52,7 +52,7 @@ public class InsertMascota extends javax.swing.JPanel {
             ex.printStackTrace();
         }
    
-        DefaultComboBoxModel<TipoMascota> model = new DefaultComboBoxModel<>(lista.toArray(new TipoMascota[0]));
+        DefaultComboBoxModel<TipoMascota> model = new DefaultComboBoxModel<>(lista.toArray(TipoMascota[]::new));
         ListaTipo.setModel(model);
     }
     /**
@@ -77,7 +77,7 @@ public class InsertMascota extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         EdadPet = new javax.swing.JTextField();
         jScrollBar1 = new javax.swing.JScrollBar();
-        jButton1 = new javax.swing.JButton();
+        crearMascota = new javax.swing.JButton();
         Fecha = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -136,10 +136,10 @@ public class InsertMascota extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Subir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        crearMascota.setText("Subir");
+        crearMascota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                crearMascotaActionPerformed(evt);
             }
         });
 
@@ -190,7 +190,7 @@ public class InsertMascota extends javax.swing.JPanel {
                             .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(crearMascota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(21, 21, 21)))))
                 .addGap(188, 188, 188)
@@ -230,7 +230,7 @@ public class InsertMascota extends javax.swing.JPanel {
                 .addGap(2, 2, 2)
                 .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(98, 98, 98)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(crearMascota, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                 .addGap(142, 142, 142)
                 .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                 .addGap(33, 33, 33))
@@ -258,7 +258,14 @@ public class InsertMascota extends javax.swing.JPanel {
         
     }//GEN-LAST:event_EdadPetActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void crearMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearMascotaActionPerformed
+        Upload();
+    }//GEN-LAST:event_crearMascotaActionPerformed
+
+    private void RazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RazaActionPerformed
+        
+    }//GEN-LAST:event_RazaActionPerformed
+    private void Upload(){
         documentoDueño = DocumentoDueño.getText();
         Tipo = ListaTipo.getSelectedIndex()+1;
         
@@ -269,7 +276,7 @@ public class InsertMascota extends javax.swing.JPanel {
         try {
             Edad = Integer.parseInt(EdadPet.getText());
         } catch(NumberFormatException ex){
-            
+            System.out.println(ex);
         }
         Mascota user = new Mascota(documentoDueño, NombreMascota, Tipo, raza, Dueño, Edad, FechaNacimiento);
         DAOMascotaImpl up = new DAOMascotaImpl();
@@ -278,12 +285,7 @@ public class InsertMascota extends javax.swing.JPanel {
         } catch (Exception ex) {
             Logger.getLogger(InsertMascota.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void RazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RazaActionPerformed
-        
-    }//GEN-LAST:event_RazaActionPerformed
-
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try { 
             String dsc = JOptionPane.showInputDialog("Inserte El Tipo de Mascota");
@@ -307,7 +309,7 @@ public class InsertMascota extends javax.swing.JPanel {
     private javax.swing.JTextField NombreAmo;
     private javax.swing.JTextField NombrePet;
     private javax.swing.JTextField Raza;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton crearMascota;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

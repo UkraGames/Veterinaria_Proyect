@@ -23,7 +23,7 @@ public class DAOCitasImpl extends conexion implements DAOCitas {
         Date SQLdate = new Date(e.getFecha().getTime());
         try {
             getConnection();
-            try (java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO citas(Fecha, Descripcion, IdMascota) VALUES (?, ?, ?)")) {
+            try (java.sql.PreparedStatement st = conn.prepareStatement("INSERT INTO Citas(Fecha, Descripcion, IdMascota) VALUES (?, ?, ?)")) {
                 st.setDate(0, SQLdate);
                 st.setString(1, e.getDescripcion());
                 st.setInt(2, e.getIdMascota());
@@ -39,7 +39,7 @@ public class DAOCitasImpl extends conexion implements DAOCitas {
     public void Modificar(Citas e) throws Exception {
         try {
             getConnection();
-            var st = conn.prepareStatement("UPDATE `citas` SET `Fecha` = ?, `Descripcion` = ? WHERE `IdMascota` = ?;");
+            var st = conn.prepareStatement("UPDATE `Citas` SET `Fecha` = ?, `Descripcion` = ? WHERE `IdMascota` = ?;");
             st.setDate(1, (Date) e.getFecha()); // Asegúrate de que `getFecha()` devuelve un objeto compatible (ej. java.sql.Date).
             st.setString(2, e.getDescripcion());
             st.setInt(3, e.getIdMascota());
@@ -55,7 +55,7 @@ public class DAOCitasImpl extends conexion implements DAOCitas {
         try{
             this.getConnection();
             Lista = new ArrayList();
-            try (PreparedStatement st = conn.prepareStatement("SELECT * FROM citas")){
+            try (PreparedStatement st = conn.prepareStatement("SELECT * FROM Citas")){
                 try (ResultSet rs = st.executeQuery()){
                     while (rs.next()){
                         Citas cita = new Citas();

@@ -18,7 +18,7 @@ public class DAOHistoriaClinicaImpl extends conexion implements DAOHistoriaClini
             var date = e.getFechaCita();
             java.sql.Date sqlDate =  new Date(date.getTime());
             this.getConnection();
-            java.sql.PreparedStatement st = this.conn.prepareStatement("INSERT INTO `historialclinico`(FechaCita, Seguimiento, Recetado, idMascota) VALUES (?, ?, ?, ?)");
+            java.sql.PreparedStatement st = this.conn.prepareStatement("INSERT INTO `HistorialClinico`(FechaCita, Seguimiento, Recetado, idMascota) VALUES (?, ?, ?, ?)");
             st.setDate(1, sqlDate);
             st.setString(2, e.getSeguimiento());
             st.setString(3, e.getRecetado());
@@ -35,7 +35,7 @@ public class DAOHistoriaClinicaImpl extends conexion implements DAOHistoriaClini
     public void Modificar(HistoriaClinica e) throws Exception {
         try{
             this.getConnection();
-            PreparedStatement st = conn.prepareStatement("UPDATE `historialclinico` SET `FechaCita` = ?, `Seguimineto` = ?, `Recetado` = ? WHERE `idMascota` = ?;");
+            PreparedStatement st = conn.prepareStatement("UPDATE `HistorialClinico` SET `FechaCita` = ?, `Seguimiento` = ?, `Recetado` = ? WHERE `idMascota` = ?;");
             st.setDate(1, (Date) e.getFechaCita());
             st.setString(2, e.getSeguimiento()); 
             st.setString(3, e.getRecetado());
@@ -53,7 +53,7 @@ public class DAOHistoriaClinicaImpl extends conexion implements DAOHistoriaClini
         ArrayList<HistoriaClinica> Lista = new ArrayList();
         try {
             this.getConnection();
-            try (PreparedStatement st = this.conn.prepareStatement("SELECT * FROM historialclinico;")) {
+            try (PreparedStatement st = this.conn.prepareStatement("SELECT * FROM HistorialClinico;")) {
                 try (ResultSet rs = st.executeQuery()) {
                     while (rs.next()){
                         HistoriaClinica histo = new HistoriaClinica();
